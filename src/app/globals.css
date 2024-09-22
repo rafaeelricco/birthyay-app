@@ -6,6 +6,9 @@ body {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+   font:
+      400 1rem 'Inter',
+      sans-serif;
 }
 
 body * {
@@ -54,7 +57,7 @@ a,
 ul,
 li,
 button {
-   font-family: 'SF Pro Display', sans-serif;
+   font-family: 'Inter', sans-serif;
 }
 
 input:-webkit-autofill::first-line {
@@ -85,13 +88,4 @@ input {
       border-radius: 8px;
       background: #c5c5c5;
    }
-}
-
-.scrollbar-hide::-webkit-scrollbar {
-   display: none;
-}
-
-.scrollbar-hide {
-   -ms-overflow-style: none;
-   scrollbar-width: none;
 }

@@ -29,18 +29,11 @@ const config: Config = {
             gray: {
                primary: '#868686'
             },
-            background: 'var(--background)',
-            foreground: 'var(--foreground)',
             gradient: {
                start: '#8a30e3',
                middle: '#ee6ba1',
                end: '#eac893'
             }
-         },
-         borderRadius: {
-            lg: 'var(--radius)',
-            md: 'calc(var(--radius) - 2px)',
-            sm: 'calc(var(--radius) - 4px)'
          }
       }
    },

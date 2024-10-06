@@ -11,6 +11,10 @@ const config: Config = {
    ],
    theme: {
       extend: {
+         fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            inter: ['Inter', 'sans-serif']
+         },
          colors: {
             black: {
                primary: '#34383A'

@@ -1,6 +1,7 @@
 'use client'
 
 import { Button } from '@/components/ui/button'
+import { Header } from '@/components/ui/header'
 import { Grid } from '@/features/home/grid'
 import { LinesSVG } from '@/features/home/lines'
 import { DictionaryProps } from '@/types/dictionary'
@@ -9,34 +10,35 @@ import React from 'react'
 
 const HomeComponent: React.FC<DictionaryProps> = ({ dictionary }: DictionaryProps) => {
    return (
-      <div className="relative flex h-screen flex-col items-center justify-center">
-         <div className="flex flex-col items-center justify-center space-y-4">
-            <Badge />
-            <div className="flex flex-col items-center justify-center space-y-4">
-               <h1 className="text-black-primary text-center text-5xl font-bold">
-                  O seu feliz{' '}
-                  <span className="from-gradient-start via-gradient-middle to-gradient-end bg-gradient-to-tl bg-clip-text text-transparent">
-                     aniversário
-                  </span>{' '}
-                  <br />
-                  de um jeito especial
-               </h1>
-               <p className="text-gray-primary max-w-[64ch] text-center text-base font-medium">
-                  Crie páginas de aniversário que ajudam você a expressar seus sentimentos com mensagens personalizadas,
-                  vídeos e muito mais.
-               </p>
-               <div className="flex gap-4">
-                  <Button variant="gradient">Começar agora</Button>
-                  <Button variant="outline">Saiba mais</Button>
+      <div className="relative">
+         <Header dictionary={dictionary} />
+         <div className="relative mt-28 flex min-h-screen flex-col items-center justify-center">
+            <div className="z-10 flex h-full w-full flex-col items-center justify-center space-y-4">
+               <Badge />
+               <div className="flex flex-col items-center justify-center space-y-4">
+                  <h1 className="text-black-primary text-center text-6xl font-bold">
+                     O seu feliz{' '}
+                     <span className="from-gradient-start via-gradient-middle to-gradient-end bg-gradient-to-tl bg-clip-text text-transparent">
+                        aniversário
+                     </span>{' '}
+                     <br />
+                     de um jeito especial
+                  </h1>
+                  <p className="text-gray-primary max-w-[64ch] text-center text-base font-medium">
+                     Crie páginas de aniversário que ajudam você a expressar seus sentimentos com mensagens
+                     personalizadas, vídeos e muito mais.
+                  </p>
+                  <div className="flex gap-4">
+                     <Button variant="gradient">Começar agora</Button>
+                     <Button variant="outline">Saiba mais</Button>
+                  </div>
                </div>
+               <SafariBrowserContainer></SafariBrowserContainer>
             </div>
          </div>
          <LinesSVG className="absolute left-0 top-14" />
          <Grid className="absolute left-0 top-14 -z-10" />
          <div className="absolute right-0 top-14 -z-10 h-[962px] w-[962px] rounded-full bg-gradient-to-r from-[#cdb6ff] via-[#ff94c6] to-[#ffc78c] opacity-40 blur-[200px]" />
-         <SafariBrowserContainer>
-            <p>this is my content</p>
-         </SafariBrowserContainer>
       </div>
    )
 }

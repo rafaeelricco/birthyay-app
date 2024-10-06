@@ -11,6 +11,13 @@ const config: Config = {
    ],
    theme: {
       extend: {
+         container: {
+            center: true,
+            padding: '1rem',
+            screens: {
+               '2xl': '1636px'
+            }
+         },
          fontFamily: {
             sans: ['Inter', 'sans-serif'],
             inter: ['Inter', 'sans-serif']

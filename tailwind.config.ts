@@ -12,8 +12,19 @@ const config: Config = {
    theme: {
       extend: {
          colors: {
+            black: {
+               primary: '#34383A'
+            },
+            gray: {
+               primary: '#868686'
+            },
             background: 'var(--background)',
-            foreground: 'var(--foreground)'
+            foreground: 'var(--foreground)',
+            gradient: {
+               start: '#8a30e3',
+               middle: '#ee6ba1',
+               end: '#eac893'
+            }
          },
          borderRadius: {
             lg: 'var(--radius)',

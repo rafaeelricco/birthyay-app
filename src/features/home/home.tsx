@@ -99,14 +99,14 @@ const HomeComponent: React.FC<DictionaryProps> = ({
 }
 
 const birthdaySchema = z.object({
-   // id: string
-   // array de arquivos, até 5
-   /* 
-    message: {
-       title: string
-       body: string (string com html (parse no frontend))
-    }
-    */
+   id: z.string().uuid(),
+   files: z.array(z.instanceof(File)).max(5, 'Maximum of 5 files allowed'),
+   message: z.object({
+      title: z.string().min(1, 'Title is required').max(100, 'Title too long'),
+      body: z.string().min(1, 'Message body is required')
+   })
 })
+
+type Birthday = z.infer<typeof birthdaySchema>
 
 export { HomeComponent }

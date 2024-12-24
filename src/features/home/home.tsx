@@ -7,20 +7,19 @@ import { Button } from '@/components/ui/button'
 import { Dropzone } from '@/components/ui/dropzone'
 import { Header } from '@/components/ui/header'
 import { Input } from '@/components/ui/input'
-import { Grid } from '@/features/home/grid'
-import { LinesSVG } from '@/features/home/lines'
 import { SafariFrame } from '@/features/home/safari-frame'
 import { cn } from '@/lib/utils'
 import { DictionaryProps } from '@/types/dictionary'
 
 import AnimatedGradientText from '@/components/ui/animated-gradient-text'
+import AnimatedGridPattern from '@/components/ui/animated-grid-pattern'
 import React from 'react'
 
 const HomeComponent: React.FC<DictionaryProps> = ({
    dictionary
 }: DictionaryProps) => {
    return (
-      <div className="relative">
+      <div className="relative min-h-screen">
          <Header dictionary={dictionary} />
          <div className="relative mt-28 flex min-h-screen flex-col items-center justify-center">
             <div className="z-10 flex h-full w-full flex-col items-center justify-center space-y-4">
@@ -29,7 +28,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                      🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{' '}
                      <span
                         className={cn(
-                           `animate-gradient inline bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text font-inter font-semibold text-transparent`
+                           `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text font-inter font-semibold text-transparent`
                         )}
                      >
                         E aí, felizardo(a)!
@@ -52,7 +51,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                   </p>
                   <div className="flex gap-4">
                      <Button variant="gradient">Começar agora</Button>
-                     <Button variant="outline">Saiba mais</Button>
+                     {/* <Button variant="outline">Saiba mais</Button> */}
                   </div>
                </div>
                <SafariFrame>
@@ -84,8 +83,16 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                </SafariFrame>
             </div>
          </div>
-         <LinesSVG className="absolute left-0 top-14" />
-         <Grid className="absolute left-0 top-14 -z-10" />
+         <AnimatedGridPattern
+            numSquares={200}
+            maxOpacity={0.1}
+            duration={3}
+            repeatDelay={1}
+            className={cn(
+               '[mask-image:radial-gradient(100%_100%_at_center,white,transparent)]',
+               'absolute inset-0 -z-10 h-screen w-screen opacity-50'
+            )}
+         />
          <div className="absolute right-0 top-14 -z-10 h-[962px] w-[962px] rounded-full bg-gradient-to-r from-[#cdb6ff] via-[#ff94c6] to-[#ffc78c] opacity-40 blur-[200px]" />
       </div>
    )

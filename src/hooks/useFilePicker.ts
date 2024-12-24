@@ -22,14 +22,17 @@ export function useFilePicker({
 
    const openFilePicker = () => inputRef.current?.click()
 
-   const handleFileChange = async (event: Event) => {
-      const fileList = (event.target as HTMLInputElement).files
-      if (fileList) {
-         const filesArray = Array.from(fileList)
-         setFiles(filesArray)
-         await onFileSelect?.(filesArray)
-      }
-   }
+   const handleFileChange = React.useCallback(
+      async (event: Event) => {
+         const fileList = (event.target as HTMLInputElement).files
+         if (fileList) {
+            const filesArray = Array.from(fileList)
+            setFiles(filesArray)
+            await onFileSelect?.(filesArray)
+         }
+      },
+      [onFileSelect]
+   )
 
    const clearFiles = () => {
       setFiles([])
@@ -55,7 +58,7 @@ export function useFilePicker({
          input.removeEventListener('change', handleFileChange)
          document.body.removeChild(input)
       }
-   }, [accept, multiple])
+   }, [accept, multiple, handleFileChange])
 
    return {
       files,

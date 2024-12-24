@@ -43,19 +43,22 @@ export const metadata: Metadata = {
    metadataBase: new URL(`https://${process.env.VERCEL_URL}`)
 } as Metadata
 
+type LayoutParams = Promise<{ lang: Locale }>
+
 export async function generateStaticParams() {
    return i18n.locales.map((locale) => ({ lang: locale }))
 }
 
-export default function Root({
+export default async function Root({
    children,
    params
 }: Readonly<{
    children: React.ReactNode
-   params: { lang: Locale }
+   params: LayoutParams
 }>) {
+   const resolvedParams = await params
    return (
-      <html lang={params.lang} className="antialiased">
+      <html lang={resolvedParams.lang} className="antialiased">
          <Head
             title="Birthyay | O seu feliz aniversário de um jeito especial"
             description="Crie páginas de aniversário que ajudam você a expressar seus sentimentos com mensagens personalizadas, vídeos e muito mais."

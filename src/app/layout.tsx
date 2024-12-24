@@ -1,4 +1,5 @@
-import '@/app/globals.css'
+import '@/styles/globals.css'
+import '@/styles/reset.css'
 
 import { Head } from '@/components/seo/head'
 import { i18n, Locale } from 'i18n-config'

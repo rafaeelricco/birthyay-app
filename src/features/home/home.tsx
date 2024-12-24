@@ -1,5 +1,7 @@
 'use client'
 
+import { z } from 'zod'
+
 import { Logo } from '@/components/icons/logo'
 import { Button } from '@/components/ui/button'
 import { Dropzone } from '@/components/ui/dropzone'
@@ -44,7 +46,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({ dictionary }: DictionaryProp
                         <Logo className="mx-auto my-0 w-28 antialiased" />
                      </div>
                      <div className="grid justify-items-center">
-                        <Dropzone className="min-h-[200px] bg-white" onDropFiles={(files) => {}} />
+                        <Dropzone className="min-h-[200px] bg-white" onDropFiles={(files) => {}} files={[]} setFiles={(files) => {}} maxSize={1000} />
                      </div>
                      <Input
                         value={'Feliz aniversário, Claro Sa'}
@@ -68,4 +70,16 @@ const HomeComponent: React.FC<DictionaryProps> = ({ dictionary }: DictionaryProp
    )
 }
 
+const birthdaySchema = z.object({ 
+    // id: string
+    // array de arquivos, até 5
+    /* 
+    message: {
+       title: string
+       body: string (string com html (parse no frontend))
+    }
+    */
+})
+
 export { HomeComponent }
+

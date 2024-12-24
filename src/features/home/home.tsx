@@ -7,12 +7,13 @@ import { Button } from '@/components/ui/button'
 import { Dropzone } from '@/components/ui/dropzone'
 import { Header } from '@/components/ui/header'
 import { Input } from '@/components/ui/input'
-import { Badge } from '@/features/home/badge'
 import { Grid } from '@/features/home/grid'
 import { LinesSVG } from '@/features/home/lines'
 import { SafariFrame } from '@/features/home/safari-frame'
+import { cn } from '@/lib/utils'
 import { DictionaryProps } from '@/types/dictionary'
 
+import AnimatedGradientText from '@/components/ui/animated-gradient-text'
 import React from 'react'
 
 const HomeComponent: React.FC<DictionaryProps> = ({
@@ -23,7 +24,18 @@ const HomeComponent: React.FC<DictionaryProps> = ({
          <Header dictionary={dictionary} />
          <div className="relative mt-28 flex min-h-screen flex-col items-center justify-center">
             <div className="z-10 flex h-full w-full flex-col items-center justify-center space-y-4">
-               <Badge />
+               <div className="z-10 flex items-center justify-center">
+                  <AnimatedGradientText>
+                     🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{' '}
+                     <span
+                        className={cn(
+                           `animate-gradient inline bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text font-inter font-semibold text-transparent`
+                        )}
+                     >
+                        E aí, felizardo(a)!
+                     </span>
+                  </AnimatedGradientText>
+               </div>
                <div className="flex flex-col items-center justify-center space-y-4">
                   <h1 className="text-center text-6xl font-bold text-black-primary">
                      O seu feliz{' '}

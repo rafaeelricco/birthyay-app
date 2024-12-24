@@ -6,36 +6,11 @@ import { i18n, Locale } from 'i18n-config'
 import type { Metadata } from 'next'
 import { Toaster } from 'sonner'
 
-import localFont from 'next/font/local'
+import { Inter } from 'next/font/google'
 
-const interFont = localFont({
-   src: [
-      {
-         path: './fonts/Inter-Regular.ttf',
-         weight: '400',
-         style: 'normal'
-      },
-      {
-         path: './fonts/Inter-Medium.ttf',
-         weight: '500',
-         style: 'normal'
-      },
-      {
-         path: './fonts/Inter-SemiBold.ttf',
-         weight: '600',
-         style: 'normal'
-      },
-      {
-         path: './fonts/Inter-Bold.ttf',
-         weight: '700',
-         style: 'normal'
-      },
-      {
-         path: './fonts/Inter-Italic.ttf',
-         weight: '400',
-         style: 'italic'
-      }
-   ],
+const interFont = Inter({
+   subsets: ['latin'],
+   weight: ['400', '500', '600', '700'],
    variable: '--font-inter'
 })
 

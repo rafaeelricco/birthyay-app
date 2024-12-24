@@ -1,16 +1,19 @@
 import React from 'react'
+
 const Badge: React.FC = () => {
    return (
       <div className="relative inline-flex">
          <GradientBadgeContainer className="absolute inset-0" />
-         <p className="from-gradient-start via-gradient-middle to-gradient-end font-inter relative z-10 bg-gradient-to-tl bg-clip-text px-4 py-1 text-sm font-medium text-transparent">
+         <p className="relative z-10 bg-gradient-to-tl from-gradient-start via-gradient-middle to-gradient-end bg-clip-text px-4 py-1 font-inter text-sm font-medium text-transparent">
             E aí, felizardo(a)! <span className="text-black-primary">🎉</span>
          </p>
       </div>
    )
 }
 
-const GradientBadgeContainer: React.FC<React.SVGProps<SVGSVGElement>> = (props: React.SVGProps<SVGSVGElement>) => {
+const GradientBadgeContainer: React.FC<React.SVGProps<SVGSVGElement>> = (
+   props: React.SVGProps<SVGSVGElement>
+) => {
    return (
       <svg
          fill="none"
@@ -20,7 +23,13 @@ const GradientBadgeContainer: React.FC<React.SVGProps<SVGSVGElement>> = (props: 
          height="100%"
          {...props}
       >
-         <rect width="100%" height="100%" rx="16" ry="16" fill="url(#paint0_linear_24_905)" />
+         <rect
+            width="100%"
+            height="100%"
+            rx="16"
+            ry="16"
+            fill="url(#paint0_linear_24_905)"
+         />
          <defs>
             <linearGradient
                id="paint0_linear_24_905"

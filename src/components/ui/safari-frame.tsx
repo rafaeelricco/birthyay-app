@@ -131,7 +131,7 @@ const SafariFrame: React.FC<
                            fillOpacity={0.05}
                         />
                         <text
-                           x={648}
+                           x={664}
                            y={71}
                            fill="#4C4C4C"
                            fontSize={13}
@@ -145,7 +145,7 @@ const SafariFrame: React.FC<
                               fill="#9E9E9E"
                            />
                            <text
-                              x={648}
+                              x={664}
                               y={71}
                               fill="#4C4C4C"
                               fontSize={13}

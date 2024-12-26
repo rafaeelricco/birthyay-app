@@ -16,9 +16,7 @@ const Dropzone: React.FC<DropzoneProps> = ({
    const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
       useDropzone({
          multiple: false,
-         accept: {
-            'image/*': []
-         },
+         accept: { 'image/*': [] },
          onDrop: (acceptedFiles) => {
             setFiles(acceptedFiles)
             onDropFiles(acceptedFiles)
@@ -28,7 +26,7 @@ const Dropzone: React.FC<DropzoneProps> = ({
    return (
       <div
          className={cn(
-            'flex h-auto w-full flex-1 border-spacing-1 flex-col items-center justify-center rounded-lg border border-dashed border-white-500 bg-transparent p-4 transition-all duration-300 min-h-[120px] md:min-h-full',
+            'flex h-auto w-full flex-1 border-spacing-1 flex-col items-center justify-center rounded-lg border border-dashed border-white-500 bg-transparent p-4 transition-all duration-300',
             {
                'border-primary-default': isFocused || files.length > 0,
                'border-green-500': isDragAccept,

@@ -16,16 +16,19 @@ import AnimatedGridPattern from '@/components/ui/animated-grid-pattern'
 import React from 'react'
 
 const HomeComponent: React.FC<DictionaryProps> = ({
-   dictionary
-}: DictionaryProps) => {
+                                                     dictionary
+                                                  }: DictionaryProps) => {
    return (
       <div className="relative min-h-screen">
          <Header dictionary={dictionary} />
-         <div className="relative mt-28 flex min-h-screen flex-col items-center justify-center">
-            <div className="z-10 flex h-full w-full flex-col items-center justify-center space-y-4">
+         <div
+            className="relative mt-28 flex min-h-screen flex-col items-center justify-center">
+            <div
+               className="z-10 flex h-full w-full flex-col items-center justify-center space-y-4">
                <div className="z-10 flex items-center justify-center">
                   <AnimatedGradientText>
-                     🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{' '}
+                     🎉 <hr
+                     className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{' '}
                      <span
                         className={cn(
                            `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text font-inter font-semibold text-transparent`
@@ -35,10 +38,13 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                      </span>
                   </AnimatedGradientText>
                </div>
-               <div className="flex flex-col items-center justify-center space-y-4">
-                  <h1 className="text-center text-6xl font-bold text-black-primary">
+               <div
+                  className="flex flex-col items-center justify-center space-y-4">
+                  <h1
+                     className="text-center text-6xl font-bold text-black-primary">
                      O seu feliz{' '}
-                     <span className="bg-gradient-to-tl from-gradient-start via-gradient-middle to-gradient-end bg-clip-text text-transparent">
+                     <span
+                        className="bg-gradient-to-tl from-gradient-start via-gradient-middle to-gradient-end bg-clip-text text-transparent">
                         aniversário
                      </span>{' '}
                      <br />
@@ -62,9 +68,11 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                      <div className="grid justify-items-center">
                         <Dropzone
                            className="min-h-[200px] bg-white"
-                           onDropFiles={(files) => {}}
+                           onDropFiles={(files) => {
+                           }}
                            files={[]}
-                           setFiles={(files) => {}}
+                           setFiles={(files) => {
+                           }}
                            maxSize={1000}
                         />
                      </div>
@@ -79,6 +87,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                            year: 'numeric'
                         })}
                      </p>
+                     <TextEditor />
                   </div>
                </SafariFrame>
             </div>
@@ -93,7 +102,8 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                'absolute inset-0 -z-10 h-screen w-screen opacity-50'
             )}
          />
-         <div className="absolute right-0 top-14 -z-10 h-[962px] w-[962px] rounded-full bg-gradient-to-r from-[#cdb6ff] via-[#ff94c6] to-[#ffc78c] opacity-40 blur-[200px]" />
+         <div
+            className="absolute right-0 top-14 -z-10 h-[962px] w-[962px] rounded-full bg-gradient-to-r from-[#cdb6ff] via-[#ff94c6] to-[#ffc78c] opacity-40 blur-[200px]" />
       </div>
    )
 }
@@ -108,5 +118,13 @@ const birthdaySchema = z.object({
 })
 
 type Birthday = z.infer<typeof birthdaySchema>
+
+const TextEditor: React.FC = () => {
+   return (
+      <React.Fragment>
+
+      </React.Fragment>
+   )
+}
 
 export { HomeComponent }

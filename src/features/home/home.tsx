@@ -1,13 +1,13 @@
 'use client'
 
-import { z } from 'zod'
+import * as z from 'zod'
 
 import { Logo } from '@/components/icons/logo'
 import { Button } from '@/components/ui/button'
 import { Dropzone } from '@/components/ui/dropzone'
 import { Header } from '@/components/ui/header'
 import { Input } from '@/components/ui/input'
-import { SafariFrame } from '@/features/home/safari-frame'
+import { SafariFrame } from '@/components/ui/safari-frame'
 import { cn } from '@/lib/utils'
 import { DictionaryProps } from '@/types/dictionary'
 
@@ -15,9 +15,7 @@ import AnimatedGradientText from '@/components/ui/animated-gradient-text'
 import AnimatedGridPattern from '@/components/ui/animated-grid-pattern'
 import React from 'react'
 
-const HomeComponent: React.FC<DictionaryProps> = ({
-                                                     dictionary
-                                                  }: DictionaryProps) => {
+const HomeComponent: React.FC<DictionaryProps> = ({ dictionary }: DictionaryProps) => {
    return (
       <div className="relative min-h-screen">
          <Header dictionary={dictionary} />

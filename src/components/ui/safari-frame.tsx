@@ -85,8 +85,10 @@ const SafariFrame: React.FC<
                            fill="#EE6A5F"
                         />
                      </g>
-                     <path
-                        d="M82.75 66a5.75 5.75 0 11-11.5 0 5.75 5.75 0 0111.5 0z"
+                     <circle
+                        cx={77}
+                        cy={66}
+                        r={5.75}
                         stroke="#CE5347"
                         strokeWidth={0.5}
                      />
@@ -98,8 +100,10 @@ const SafariFrame: React.FC<
                            fill="#F5BD4F"
                         />
                      </g>
-                     <path
-                        d="M102.75 66a5.75 5.75 0 11-11.5 0 5.75 5.75 0 0111.5 0z"
+                     <circle
+                        cx={97}
+                        cy={66}
+                        r={5.75}
                         stroke="#D6A243"
                         strokeWidth={0.5}
                      />
@@ -111,8 +115,10 @@ const SafariFrame: React.FC<
                            fill="#61C454"
                         />
                      </g>
-                     <path
-                        d="M122.75 66a5.75 5.75 0 11-11.5 0 5.75 5.75 0 0111.5 0z"
+                     <circle
+                        cx={117}
+                        cy={66}
+                        r={5.75}
                         stroke="#58A942"
                         strokeWidth={0.5}
                      />
@@ -131,7 +137,7 @@ const SafariFrame: React.FC<
                            fillOpacity={0.05}
                         />
                         <text
-                           x={648}
+                           x={664}
                            y={71}
                            fill="#4C4C4C"
                            fontSize={13}
@@ -145,7 +151,7 @@ const SafariFrame: React.FC<
                               fill="#9E9E9E"
                            />
                            <text
-                              x={648}
+                              x={664}
                               y={71}
                               fill="#4C4C4C"
                               fontSize={13}

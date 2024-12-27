@@ -66,7 +66,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                      {/* <Button variant="outline">Saiba mais</Button> */}
                   </div>
                </div>
-               <SafariFrame url="">
+               <SafariFrame url="birthyay.net">
                   <div className="mx-auto my-0 max-w-[70%] space-y-4">
                      <div className="w-full py-4">
                         <Logo className="mx-auto my-0 w-28 antialiased" />

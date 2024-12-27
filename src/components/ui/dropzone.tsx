@@ -13,20 +13,28 @@ const Dropzone: React.FC<DropzoneProps> = ({
    maxSize,
    onDropFiles
 }: DropzoneProps) => {
-   const { getRootProps, getInputProps, isFocused, isDragAccept, isDragReject } =
-      useDropzone({
-         multiple: false,
-         accept: { 'image/*': [] },
-         onDrop: (acceptedFiles) => {
-            setFiles(acceptedFiles)
-            onDropFiles(acceptedFiles)
-         }
-      })
+   const {
+      getRootProps,
+      getInputProps,
+      isFocused,
+      isDragAccept,
+      isDragReject
+   } = useDropzone({
+      multiple: false,
+      accept: { 'image/*': [] },
+      onDrop: (acceptedFiles) => {
+         setFiles(acceptedFiles)
+         onDropFiles(acceptedFiles)
+      }
+   })
 
    return (
       <div
          className={cn(
-            'flex h-auto w-full flex-1 border-spacing-1 flex-col items-center justify-center rounded-lg border border-dashed border-white-500 bg-transparent p-4 transition-all duration-300',
+            'flex h-auto w-full flex-1 border-spacing-1 flex-col' +
+               ' items-center justify-center rounded-lg border border-dashed' +
+               ' border-white-500 bg-transparent p-4 transition-all' +
+               ' duration-300',
             {
                'border-primary-default': isFocused || files.length > 0,
                'border-green-500': isDragAccept,
@@ -39,7 +47,7 @@ const Dropzone: React.FC<DropzoneProps> = ({
          <input {...getInputProps()} />
          {files.length === 0 ? (
             <div className="flex flex-1 flex-col items-center justify-center">
-               <CloudUpload className="my-2 h-6 w-6 text-black-500" />
+               <CloudUpload className="text-black-500 my-2 h-6 w-6" />
                <p className="text-base">
                   <span className="cursor-default font-semibold underline">
                      Clique para enviar
@@ -63,7 +71,7 @@ const Dropzone: React.FC<DropzoneProps> = ({
                      ({formatSize(files[0].size)})
                   </span>
                   <Eye
-                     className="h-5 w-5 cursor-pointer hover:text-primary-default"
+                     className="hover:text-primary-default h-5 w-5 cursor-pointer"
                      onClick={(e) => {
                         e.stopPropagation()
                         window.open(URL.createObjectURL(files[0]), '_blank')
@@ -86,13 +94,13 @@ const Dropzone: React.FC<DropzoneProps> = ({
 
 const formatSize = (size: number): string => {
    if (size < 1024) {
-      return size + ' bytes'
+      return Math.round(size) + ' bytes'
    } else if (size < Math.pow(1024, 2)) {
-      return (size / 1024).toFixed(1) + 'KB'
+      return Math.round(size / 1024) + 'KB'
    } else if (size < Math.pow(1024, 3)) {
-      return (size / Math.pow(1024, 2)).toFixed(1) + 'MB'
+      return Math.round(size / Math.pow(1024, 2)) + 'MB'
    } else {
-      return (size / Math.pow(1024, 3)).toFixed(1) + 'GB'
+      return Math.round(size / Math.pow(1024, 3)) + 'GB'
    }
 }
 
@@ -105,4 +113,3 @@ interface DropzoneProps {
 }
 
 export { Dropzone }
-

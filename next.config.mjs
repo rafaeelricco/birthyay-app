@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-   transpilePackages: ['jodit-react-ts', 'jodit'],
    async redirects() {
       return [
          {

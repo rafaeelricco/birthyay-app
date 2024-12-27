@@ -1,12 +1,12 @@
 import '@/styles/globals.css'
 import '@/styles/reset.css'
+import 'jodit/build/jodit.min.css'
 
 import { Head } from '@/components/seo/head'
 import { i18n, Locale } from 'i18n-config'
 import type { Metadata } from 'next'
-import { Toaster } from 'sonner'
-
 import { Inter } from 'next/font/google'
+import { Toaster } from 'sonner'
 
 const interFont = Inter({
    subsets: ['latin'],

@@ -1,6 +1,6 @@
 import '@/styles/globals.css'
 import '@/styles/reset.css'
-import 'jodit/build/jodit.min.css'
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
 
 import { Head } from '@/components/seo/head'
 import { i18n, Locale } from 'i18n-config'

@@ -208,6 +208,10 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                                  inDropdown: true,
                                  options: ['link', 'unlink']
                               },
+                              image: {
+                                 inDropdown: true,
+                                 options: ['image', 'unlink']
+                              },
                               history: {
                                  inDropdown: true,
                                  options: ['undo', 'redo']

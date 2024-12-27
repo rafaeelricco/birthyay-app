@@ -1,6 +1,8 @@
+import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
+
 import '@/styles/globals.css'
 import '@/styles/reset.css'
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
+import '@/styles/text-editor.css'
 
 import { Head } from '@/components/seo/head'
 import { i18n, Locale } from 'i18n-config'

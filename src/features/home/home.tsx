@@ -63,13 +63,13 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                   </div>
                   <div className="flex flex-col items-center justify-center space-y-4">
                      <div className="space-y-2 md:space-y-4">
-                        <h1 className="text-center text-3xl font-bold text-black-primary md:text-6xl">
-                           O seu feliz{' '}
+                        <h1 className="text-center text-3xl font-bold tracking-tight text-black-primary md:text-6xl">
                            <span className="bg-gradient-to-tl from-gradient-start via-gradient-middle to-gradient-end bg-clip-text text-transparent">
-                              aniversário
+                              Cartinhas digitais
                            </span>{' '}
+                           tão únicas
                            <br />
-                           de um jeito especial
+                           quanto cada aniversário
                         </h1>
                         <p className="max-w-[64ch] px-4 text-center text-sm font-medium text-gray-primary md:px-0 md:text-base">
                            Crie páginas de aniversário que ajudam você a

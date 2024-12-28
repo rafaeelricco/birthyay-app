@@ -5,6 +5,7 @@ import * as React from 'react'
 import { Button } from '@/components/ui/button'
 import { Header } from '@/components/ui/header'
 import { cn } from '@/lib/utils'
+import { ROUTES } from '@/routes/general'
 import { DictionaryProps } from '@/types/dictionary'
 import { useRouter } from 'next/navigation'
 import { EditorProps } from 'react-draft-wysiwyg'
@@ -12,8 +13,8 @@ import { EditorProps } from 'react-draft-wysiwyg'
 import AnimatedGradientText from '@/components/ui/animated-gradient-text'
 import AnimatedGridPattern from '@/components/ui/animated-grid-pattern'
 import HeroVideoDialog from '@/components/ui/hero-video-dialog'
-import { ROUTES } from '@/routes/general'
 import confetti from 'canvas-confetti'
+import { ChevronRight } from 'lucide-react'
 import dynamic from 'next/dynamic'
 
 const Editor = dynamic<EditorProps>(
@@ -49,15 +50,15 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                      }}
                   >
                      <AnimatedGradientText>
-                        <span className="select-none">🎉</span>{' '}
-                        <hr className="mx-2 h-4 w-px shrink-0 select-none bg-gray-300" />{' '}
+                        🎉&nbsp;{' '}
                         <span
                            className={cn(
-                              'inline animate-gradient select-none bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text font-inter font-semibold text-transparent'
+                              `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
                            )}
                         >
-                           E aí, felizardo(a)!
+                           Introducing Magic UI
                         </span>
+                        <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
                      </AnimatedGradientText>
                   </div>
                   <div className="flex flex-col items-center justify-center space-y-4">

@@ -8,23 +8,11 @@ import { cn } from '@/lib/utils'
 import { ROUTES } from '@/routes/general'
 import { DictionaryProps } from '@/types/dictionary'
 import { useRouter } from 'next/navigation'
-import { EditorProps } from 'react-draft-wysiwyg'
 
 import AnimatedGradientText from '@/components/ui/animated-gradient-text'
 import AnimatedGridPattern from '@/components/ui/animated-grid-pattern'
 import HeroVideoDialog from '@/components/ui/hero-video-dialog'
 import confetti from 'canvas-confetti'
-import dynamic from 'next/dynamic'
-
-const Editor = dynamic<EditorProps>(
-   () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
-   {
-      ssr: false,
-      loading: () => (
-         <div className="min-h-[449px] animate-pulse rounded-lg bg-neutral-100 dark:bg-neutral-800" />
-      )
-   }
-)
 
 const HomeComponent: React.FC<DictionaryProps> = ({
    dictionary
@@ -62,19 +50,18 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                   <div className="flex flex-col items-center justify-center space-y-4">
                      <div className="space-y-2 md:space-y-4">
                         <h1 className="text-center text-3xl font-bold tracking-tight text-black-primary md:text-6xl">
+                           Crie uma{' '}
                            <span className="bg-gradient-to-tl from-gradient-start via-gradient-middle to-gradient-end bg-clip-text text-transparent">
-                              Cartinhas digitais
+                              cartinha digital
                            </span>{' '}
-                           únicas
                            <br />
-                           como cada aniversário
+                           cheia de carinho
                         </h1>
                         <p className="px-4 text-center text-sm font-medium text-gray-primary md:px-0 md:text-base">
-                           Crie uma experiência personalizada com fotos, vídeos
-                           e mensagens especiais.
-                           <br className="hidden md:block" /> Transforme suas
-                           memórias em uma surpresa inesquecível para quem você
-                           ama.
+                           Transforme suas memórias mais queridas em uma
+                           surpresa inesquecível.
+                           <br className="hidden md:block" /> Adicione fotos,
+                           vídeos e mensagens especiais para quem você ama.
                         </p>
                      </div>
                      <div className="flex gap-4">
@@ -104,54 +91,6 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                         thumbnailAlt="Hero Video"
                      />
                   </div>
-                  {/* <SafariFrame url="birthyay.net">
-                     <div className="mx-auto my-0 max-w-[70%] space-y-4">
-                        <div className="w-full py-4 pt-6">
-                           <Logo className="mx-auto my-0 w-28 antialiased" />
-                        </div>
-                        <div className="grid justify-items-center">
-                           <Dropzone
-                              files={[]}
-                              message={
-                                 <React.Fragment>
-                                    <p className="text-base">
-                                       <span className="cursor-default font-semibold underline">
-                                          Clique para enviar
-                                       </span>{' '}
-                                       ou arraste e solte
-                                    </p>
-                                    <p className="text-xs text-gray-500">
-                                       Tamanho máximo de {formatSize(419500000)}
-                                       .
-                                    </p>
-                                 </React.Fragment>
-                              }
-                              className="min-h-[200px] bg-white"
-                              onDropFiles={(files) => {}}
-                              setFiles={(files) => {}}
-                              maxSize={419500000}
-                           />
-                        </div>
-                        <div className="grid w-full items-center gap-1.5">
-                           <Label htmlFor="picture">
-                              Nome do aniversariante
-                           </Label>
-                           <Input
-                              value={name}
-                              onChange={(e) => setName(e.target.value)}
-                           />
-                        </div>
-                        <Editor
-                           toolbarClassName="editor-toolbar"
-                           wrapperClassName="editor-wrapper"
-                           editorClassName="editor-style"
-                           toolbar={editor_toolbar_options}
-                           onEditorStateChange={(
-                              editorState: EditorState
-                           ) => {}}
-                        />
-                     </div>
-                  </SafariFrame> */}
                </div>
             </div>
             <AnimatedGridPattern

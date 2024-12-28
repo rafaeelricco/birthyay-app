@@ -179,3 +179,28 @@
 .rdw-dropdown-wrapper[aria-expanded='true'] .rdw-dropdown-carettoclose {
    transform: translateY(-50%) rotate(0deg);
 }
+
+/* Font Family Classes */
+[data-text-font='Montserrat'] {
+   font-family: var(--font-montserrat), sans-serif;
+}
+
+[data-text-font='Roboto'] {
+   font-family: var(--font-roboto), sans-serif;
+}
+
+[data-text-font='Inter'] {
+   font-family: var(--font-inter), sans-serif;
+}
+
+[data-text-font='Work Sans'] {
+   font-family: 'Work Sans', sans-serif;
+}
+
+[data-text-font='Dosis'] {
+   font-family: 'Dosis', sans-serif;
+}
+
+[data-text-font='Inconsolata'] {
+   font-family: 'Inconsolata', monospace;
+}

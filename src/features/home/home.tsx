@@ -148,12 +148,12 @@ const editor_toolbar_options = {
    fontFamily: {
       inDropdown: true,
       options: [
-         'Arial',
-         'Georgia',
-         'Impact',
-         'Tahoma',
-         'Times New Roman',
-         'Verdana'
+         'Montserrat',
+         'Roboto',
+         'Inter',
+         'Work Sans',
+         'Dosis',
+         'Inconsolata'
       ],
       className: undefined,
       component: undefined,

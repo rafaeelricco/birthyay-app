@@ -12,7 +12,6 @@ body * {
    box-sizing: inherit;
    -webkit-font-smoothing: antialiased;
    -moz-osx-font-smoothing: grayscale;
-   font-family: 'Inter', sans-serif;
 }
 
 body *:after,

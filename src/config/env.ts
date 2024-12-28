@@ -6,7 +6,9 @@ const createEnv = () => {
       API_URL: z.string().url()
    })
 
-   const envVars = Object.entries(import.meta.filename).reduce<Record<string, string>>((acc, curr) => {
+   const envVars = Object.entries(import.meta.filename).reduce<
+      Record<string, string>
+   >((acc, curr) => {
       const [key, value] = curr
       if (key.startsWith('NEXT_PUBLIC_')) {
          acc[key.replace('NEXT_PUBLIC_', '')] = value

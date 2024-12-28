@@ -12,12 +12,18 @@ export function middleware(request: NextRequest) {
 
    /** @dev Check if the pathname is missing a locale prefix. */
    const pathnameIsMissingLocale = i18n.locales.every(
-      (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
+      (locale) =>
+         !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
    )
 
    /** @dev Redirect to the URL with the detected locale if missing. */
    if (pathnameIsMissingLocale) {
-      return NextResponse.redirect(new URL(`/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`, request.url))
+      return NextResponse.redirect(
+         new URL(
+            `/${locale}${pathname.startsWith('/') ? '' : '/'}${pathname}`,
+            request.url
+         )
+      )
    }
 
    /** @dev Allow the request to continue if none of the above conditions are met. */

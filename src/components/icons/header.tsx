@@ -1,4 +1,6 @@
-export const PanelLeftIcon: React.FC<React.SVGProps<SVGSVGElement>> = (props) => {
+export const PanelLeftIcon: React.FC<React.SVGProps<SVGSVGElement>> = (
+   props
+) => {
    return (
       <svg
          {...props}

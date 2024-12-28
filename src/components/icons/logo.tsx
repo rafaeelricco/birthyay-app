@@ -1,9 +1,23 @@
 import React from 'react'
 
-const Logo: React.FC<React.SVGProps<SVGSVGElement>> = (props: React.SVGProps<SVGSVGElement>) => {
+const Logo: React.FC<React.SVGProps<SVGSVGElement>> = (
+   props: React.SVGProps<SVGSVGElement>
+) => {
    return (
-      <svg viewBox="0 0 142 43" fill="none" xmlns="http://www.w3.org/2000/svg" {...props}>
-         <rect x={0.474263} y={0.474263} width={41.3924} height={41.3924} rx={9.01099} fill="#fff" />
+      <svg
+         viewBox="0 0 142 43"
+         fill="none"
+         xmlns="http://www.w3.org/2000/svg"
+         {...props}
+      >
+         <rect
+            x={0.474263}
+            y={0.474263}
+            width={41.3924}
+            height={41.3924}
+            rx={9.01099}
+            fill="#fff"
+         />
          <rect
             x={0.474263}
             y={0.474263}

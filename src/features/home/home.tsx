@@ -7,19 +7,14 @@ import * as z from 'zod'
 import { DictionaryProps } from '@/types/dictionary'
 import { EditorProps } from 'react-draft-wysiwyg'
 
-import { Logo } from '@/components/icons/logo'
 import { Button } from '@/components/ui/button'
-import { Dropzone } from '@/components/ui/dropzone'
 import { Header } from '@/components/ui/header'
-import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
-import { SafariFrame } from '@/components/ui/safari-frame'
 import { cn } from '@/lib/utils'
 import { EditorState } from 'draft-js'
 
 import AnimatedGradientText from '@/components/ui/animated-gradient-text'
 import AnimatedGridPattern from '@/components/ui/animated-grid-pattern'
-import { editor_toolbar_options } from '@/lib/react-draft-wysiwyg'
+import HeroVideoDialog from '@/components/ui/hero-video-dialog'
 
 const Editor = dynamic<EditorProps>(
    () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
@@ -74,15 +69,43 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                         <Button variant="gradient">Começar agora</Button>
                      </div>
                   </div>
-                  <SafariFrame url="birthyay.net">
+                  <HeroVideoDialog
+                     className="block dark:hidden"
+                     animationStyle="from-center"
+                     videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+                     thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+                     thumbnailAlt="Hero Video"
+                  />
+                  <HeroVideoDialog
+                     className="hidden dark:block"
+                     animationStyle="from-center"
+                     videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+                     thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
+                     thumbnailAlt="Hero Video"
+                  />
+                  {/* <SafariFrame url="birthyay.net">
                      <div className="mx-auto my-0 max-w-[70%] space-y-4">
                         <div className="w-full py-4 pt-6">
                            <Logo className="mx-auto my-0 w-28 antialiased" />
                         </div>
                         <div className="grid justify-items-center">
                            <Dropzone
-                              className="min-h-[200px] bg-white"
                               files={[]}
+                              message={
+                                 <React.Fragment>
+                                    <p className="text-base">
+                                       <span className="cursor-default font-semibold underline">
+                                          Clique para enviar
+                                       </span>{' '}
+                                       ou arraste e solte
+                                    </p>
+                                    <p className="text-xs text-gray-500">
+                                       Tamanho máximo de {formatSize(419500000)}
+                                       .
+                                    </p>
+                                 </React.Fragment>
+                              }
+                              className="min-h-[200px] bg-white"
                               onDropFiles={(files) => {}}
                               setFiles={(files) => {}}
                               maxSize={419500000}
@@ -107,7 +130,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                            ) => {}}
                         />
                      </div>
-                  </SafariFrame>
+                  </SafariFrame> */}
                </div>
             </div>
             <AnimatedGridPattern

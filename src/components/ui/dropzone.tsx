@@ -1,5 +1,6 @@
 'use client'
 
+import { formatSize } from '@/lib/react-dropzone'
 import { cn } from '@/lib/utils'
 import { CloudUpload, Eye, FileText, Trash } from 'lucide-react'
 import { useDropzone } from 'react-dropzone'
@@ -9,8 +10,9 @@ import React from 'react'
 const Dropzone: React.FC<DropzoneProps> = ({
    className,
    files,
-   setFiles,
    maxSize,
+   message,
+   setFiles,
    onDropFiles
 }: DropzoneProps) => {
    const {
@@ -48,16 +50,22 @@ const Dropzone: React.FC<DropzoneProps> = ({
          {files.length === 0 ? (
             <div className="flex flex-1 flex-col items-center justify-center">
                <CloudUpload className="text-black-500 my-2 h-6 w-6" />
-               <p className="text-base">
-                  <span className="cursor-default font-semibold underline">
-                     Clique para enviar
-                  </span>{' '}
-                  ou arraste e solte
-               </p>
-               {maxSize && (
-                  <p className="text-xs text-gray-500">
-                     Tamanho máximo de {formatSize(maxSize)}.
-                  </p>
+               {message ? (
+                  <React.Fragment>{message}</React.Fragment>
+               ) : (
+                  <React.Fragment>
+                     <p className="text-base">
+                        <span className="cursor-default font-semibold underline">
+                           Clique para enviar
+                        </span>{' '}
+                        ou arraste e solte
+                     </p>
+                     {maxSize && (
+                        <p className="text-xs text-gray-500">
+                           Tamanho máximo de {formatSize(maxSize)}.
+                        </p>
+                     )}
+                  </React.Fragment>
                )}
             </div>
          ) : (
@@ -92,21 +100,10 @@ const Dropzone: React.FC<DropzoneProps> = ({
    )
 }
 
-const formatSize = (size: number): string => {
-   if (size < 1024) {
-      return Math.round(size) + ' bytes'
-   } else if (size < Math.pow(1024, 2)) {
-      return Math.round(size / 1024) + 'KB'
-   } else if (size < Math.pow(1024, 3)) {
-      return Math.round(size / Math.pow(1024, 2)) + 'MB'
-   } else {
-      return Math.round(size / Math.pow(1024, 3)) + 'GB'
-   }
-}
-
 interface DropzoneProps {
    files: File[]
    maxSize?: number
+   message?: React.ReactNode
    className?: string
    setFiles: (files: File[]) => void
    onDropFiles: (files: File[]) => void

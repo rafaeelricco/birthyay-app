@@ -18,33 +18,6 @@ import { Label } from '@/components/ui/label'
 import { SafariFrame } from '@/components/ui/safari-frame'
 import { cn } from '@/lib/utils'
 import { EditorState } from 'draft-js'
-import {
-   AlignCenter,
-   AlignJustify,
-   AlignLeft,
-   AlignRight,
-   ArrowDown,
-   ArrowLeft,
-   ArrowRight,
-   ArrowUp,
-   Bold,
-   Code,
-   Eraser,
-   Eye,
-   Image,
-   Italic,
-   Link,
-   Link2Off,
-   List,
-   ListOrdered,
-   PaintBucket,
-   Redo,
-   Smile,
-   Strikethrough,
-   Text,
-   Underline,
-   Undo
-} from 'lucide-react'
 
 const Editor = dynamic<EditorProps>(
    () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
@@ -126,98 +99,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                            toolbarClassName="editor-toolbar"
                            wrapperClassName="editor-wrapper"
                            editorClassName="editor-style"
-                           toolbar={{
-                              options: [
-                                 'inline',
-                                 'blockType',
-                                 'fontSize',
-                                 'fontFamily',
-                                 'list',
-                                 'textAlign',
-                                 'colorPicker',
-                                 'link',
-                                 'emoji',
-                                 'image',
-                                 'remove',
-                                 'history'
-                              ],
-                              fontSize: {
-                                 inDropdown: true,
-                                 options: [
-                                    8, 9, 10, 11, 12, 14, 16, 18, 24, 30, 36,
-                                    48, 60, 72, 96
-                                 ],
-                                 className: undefined,
-                                 component: undefined,
-                                 dropdownClassName: undefined
-                              },
-                              fontFamily: {
-                                 inDropdown: true,
-                                 options: [
-                                    'Arial',
-                                    'Georgia',
-                                    'Impact',
-                                    'Tahoma',
-                                    'Times New Roman',
-                                    'Verdana'
-                                 ],
-                                 className: undefined,
-                                 component: undefined,
-                                 dropdownClassName: undefined
-                              },
-                              inline: {
-                                 inDropdown: true,
-                                 options: [
-                                    'bold',
-                                    'italic',
-                                    'underline',
-                                    'strikethrough',
-                                    'monospace',
-                                    'superscript',
-                                    'subscript'
-                                 ]
-                              },
-                              blockType: {
-                                 inDropdown: true,
-                                 options: [
-                                    'Normal',
-                                    'H1',
-                                    'H2',
-                                    'H3',
-                                    'H4',
-                                    'H5',
-                                    'H6',
-                                    'Blockquote',
-                                    'Code'
-                                 ]
-                              },
-                              list: {
-                                 inDropdown: true,
-                                 options: [
-                                    'unordered',
-                                    'ordered',
-                                    'indent',
-                                    'outdent'
-                                 ]
-                              },
-                              textAlign: {
-                                 inDropdown: true,
-                                 options: ['left', 'center', 'right', 'justify']
-                              },
-                              link: {
-                                 inDropdown: true,
-                                 options: ['link', 'unlink']
-                              },
-                              image: {
-                                 inDropdown: true,
-                                 options: ['image', 'unlink']
-                              },
-                              history: {
-                                 inDropdown: true,
-                                 options: ['undo', 'redo']
-                              }
-                           }}
-                           handlePastedText={() => false}
+                           toolbar={editor_toolbar_options}
                            onEditorStateChange={(editorState: EditorState) => {
                               console.log(editorState)
                            }}
@@ -242,7 +124,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({
    )
 }
 
-const editor_toolbar = {
+const editor_toolbar_options = {
    options: [
       'inline',
       'blockType',
@@ -251,18 +133,34 @@ const editor_toolbar = {
       'list',
       'textAlign',
       'colorPicker',
-      'link',
-      'embedded',
       'emoji',
       'image',
       'remove',
       'history'
    ],
-   inline: {
-      inDropdown: false,
+   fontSize: {
+      inDropdown: true,
+      options: [8, 9, 10, 11, 12, 14, 16, 18, 24, 30, 36, 48, 60, 72, 96],
       className: undefined,
       component: undefined,
-      dropdownClassName: undefined,
+      dropdownClassName: undefined
+   },
+   fontFamily: {
+      inDropdown: true,
+      options: [
+         'Arial',
+         'Georgia',
+         'Impact',
+         'Tahoma',
+         'Times New Roman',
+         'Verdana'
+      ],
+      className: undefined,
+      component: undefined,
+      dropdownClassName: undefined
+   },
+   inline: {
+      inDropdown: true,
       options: [
          'bold',
          'italic',
@@ -271,14 +169,7 @@ const editor_toolbar = {
          'monospace',
          'superscript',
          'subscript'
-      ],
-      bold: { icon: Bold, className: undefined },
-      italic: { icon: Italic, className: undefined },
-      underline: { icon: Underline, className: undefined },
-      strikethrough: { icon: Strikethrough, className: undefined },
-      monospace: { icon: Code, className: undefined },
-      superscript: { icon: ArrowUp, className: undefined },
-      subscript: { icon: ArrowDown, className: undefined }
+      ]
    },
    blockType: {
       inDropdown: true,
@@ -292,276 +183,19 @@ const editor_toolbar = {
          'H6',
          'Blockquote',
          'Code'
-      ],
-      className: undefined,
-      component: undefined,
-      dropdownClassName: undefined
-   },
-   fontSize: {
-      icon: Text,
-      options: [8, 9, 10, 11, 12, 14, 16, 18, 24, 30, 36, 48, 60, 72, 96],
-      className: undefined,
-      component: undefined,
-      dropdownClassName: undefined
-   },
-   fontFamily: {
-      options: [
-         'Arial',
-         'Georgia',
-         'Impact',
-         'Tahoma',
-         'Times New Roman',
-         'Verdana'
-      ],
-      className: undefined,
-      component: undefined,
-      dropdownClassName: undefined
+      ]
    },
    list: {
-      inDropdown: false,
-      className: undefined,
-      component: undefined,
-      dropdownClassName: undefined,
-      options: ['unordered', 'ordered', 'indent', 'outdent'],
-      unordered: { icon: List, className: undefined },
-      ordered: { icon: ListOrdered, className: undefined },
-      indent: { icon: ArrowRight, className: undefined },
-      outdent: { icon: ArrowLeft, className: undefined }
+      inDropdown: true,
+      options: ['unordered', 'ordered', 'indent', 'outdent']
    },
    textAlign: {
-      inDropdown: false,
-      className: undefined,
-      component: undefined,
-      dropdownClassName: undefined,
-      options: ['left', 'center', 'right', 'justify'],
-      left: { icon: AlignLeft, className: undefined },
-      center: { icon: AlignCenter, className: undefined },
-      right: { icon: AlignRight, className: undefined },
-      justify: { icon: AlignJustify, className: undefined }
-   },
-   colorPicker: {
-      icon: PaintBucket,
-      className: undefined,
-      component: undefined,
-      popupClassName: undefined,
-      colors: [
-         'rgb(97,189,109)',
-         'rgb(26,188,156)',
-         'rgb(84,172,210)',
-         'rgb(44,130,201)',
-         'rgb(147,101,184)',
-         'rgb(71,85,119)',
-         'rgb(204,204,204)',
-         'rgb(65,168,95)',
-         'rgb(0,168,133)',
-         'rgb(61,142,185)',
-         'rgb(41,105,176)',
-         'rgb(85,57,130)',
-         'rgb(40,50,78)',
-         'rgb(0,0,0)',
-         'rgb(247,218,100)',
-         'rgb(251,160,38)',
-         'rgb(235,107,86)',
-         'rgb(226,80,65)',
-         'rgb(163,143,132)',
-         'rgb(239,239,239)',
-         'rgb(255,255,255)',
-         'rgb(250,197,28)',
-         'rgb(243,121,52)',
-         'rgb(209,72,65)',
-         'rgb(184,49,47)',
-         'rgb(124,112,107)',
-         'rgb(209,213,216)'
-      ]
-   },
-   link: {
-      inDropdown: false,
-      className: undefined,
-      component: undefined,
-      popupClassName: undefined,
-      dropdownClassName: undefined,
-      showOpenOptionOnHover: true,
-      defaultTargetOption: '_self',
-      options: ['link', 'unlink'],
-      link: { icon: Link, className: undefined },
-      unlink: { icon: Link2Off, className: undefined },
-      linkCallback: undefined
-   },
-   emoji: {
-      icon: Smile,
-      className: undefined,
-      component: undefined,
-      popupClassName: undefined,
-      emojis: [
-         '😀',
-         '😁',
-         '😂',
-         '😃',
-         '😉',
-         '😋',
-         '😎',
-         '😍',
-         '😗',
-         '🤗',
-         '🤔',
-         '😣',
-         '😫',
-         '😴',
-         '😌',
-         '🤓',
-         '😛',
-         '😜',
-         '😠',
-         '😇',
-         '😷',
-         '😈',
-         '👻',
-         '😺',
-         '😸',
-         '😹',
-         '😻',
-         '😼',
-         '😽',
-         '🙀',
-         '🙈',
-         '🙉',
-         '🙊',
-         '👼',
-         '👮',
-         '🕵',
-         '💂',
-         '👳',
-         '🎅',
-         '👸',
-         '👰',
-         '👲',
-         '🙍',
-         '🙇',
-         '🚶',
-         '🏃',
-         '💃',
-         '⛷',
-         '🏂',
-         '🏌',
-         '🏄',
-         '🚣',
-         '🏊',
-         '⛹',
-         '🏋',
-         '🚴',
-         '👫',
-         '💪',
-         '👈',
-         '👉',
-         '👉',
-         '👆',
-         '🖕',
-         '👇',
-         '🖖',
-         '🤘',
-         '🖐',
-         '👌',
-         '👍',
-         '👎',
-         '✊',
-         '👊',
-         '👏',
-         '🙌',
-         '🙏',
-         '🐵',
-         '🐶',
-         '🐇',
-         '🐥',
-         '🐸',
-         '🐌',
-         '🐛',
-         '🐜',
-         '🐝',
-         '🍉',
-         '🍄',
-         '🍔',
-         '🍤',
-         '🍨',
-         '🍪',
-         '🎂',
-         '🍰',
-         '🍾',
-         '🍷',
-         '🍸',
-         '🍺',
-         '🌍',
-         '🚑',
-         '⏰',
-         '🌙',
-         '🌝',
-         '🌞',
-         '⭐',
-         '🌟',
-         '🌠',
-         '🌨',
-         '🌩',
-         '⛄',
-         '🔥',
-         '🎄',
-         '🎈',
-         '🎉',
-         '🎊',
-         '🎁',
-         '🎗',
-         '🏀',
-         '🏈',
-         '🎲',
-         '🔇',
-         '🔈',
-         '📣',
-         '🔔',
-         '🎵',
-         '🎷',
-         '💰',
-         '🖊',
-         '📅',
-         '✅',
-         '❎',
-         '💯'
-      ]
-   },
-   embedded: {
-      icon: Eye,
-      className: undefined,
-      component: undefined,
-      popupClassName: undefined,
-      embedCallback: undefined,
-      defaultSize: {
-         height: 'auto',
-         width: 'auto'
-      }
+      inDropdown: true,
+      options: ['left', 'center', 'right', 'justify']
    },
    image: {
-      icon: Image,
-      className: undefined,
-      component: undefined,
-      popupClassName: undefined,
-      urlEnabled: true,
-      uploadEnabled: true,
-      alignmentEnabled: true,
-      uploadCallback: undefined,
-      previewImage: false,
-      inputAccept: 'image/gif,image/jpeg,image/jpg,image/png,image/svg',
-      alt: { present: false, mandatory: false },
-      defaultSize: {
-         height: 'auto',
-         width: 'auto'
-      }
-   },
-   remove: { icon: Eraser, className: undefined, component: undefined },
-   history: {
-      inDropdown: false,
-      className: undefined,
-      component: undefined,
-      dropdownClassName: undefined,
-      options: ['undo', 'redo'],
-      undo: { icon: Undo, className: undefined },
-      redo: { icon: Redo, className: undefined }
+      inDropdown: true,
+      options: ['image', 'unlink']
    }
 }
 

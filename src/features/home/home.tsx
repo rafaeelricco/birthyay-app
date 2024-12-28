@@ -37,14 +37,14 @@ const HomeComponent: React.FC<DictionaryProps> = ({
       <React.Fragment>
          <div className="relative min-h-screen">
             <Header dictionary={dictionary} />
-            <div className="relative mt-28 flex min-h-screen flex-col items-center justify-center">
-               <div className="z-10 flex h-full w-full flex-col items-center justify-center space-y-4">
+            <div className="relative flex h-[calc(100vh-88px)] flex-col items-center justify-center md:mt-28 md:h-full">
+               <div className="z-10 flex h-full w-full flex-col items-center justify-center space-y-4 md:pb-12">
                   <div className="z-10 flex items-center justify-center">
                      <AnimatedGradientText>
                         🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{' '}
                         <span
                            className={cn(
-                              `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text font-inter font-semibold text-transparent`
+                              'inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text font-inter font-semibold text-transparent'
                            )}
                         >
                            E aí, felizardo(a)!
@@ -52,7 +52,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                      </AnimatedGradientText>
                   </div>
                   <div className="flex flex-col items-center justify-center space-y-4">
-                     <h1 className="text-center text-6xl font-bold text-black-primary">
+                     <h1 className="text-center text-4xl font-bold text-black-primary md:text-6xl">
                         O seu feliz{' '}
                         <span className="bg-gradient-to-tl from-gradient-start via-gradient-middle to-gradient-end bg-clip-text text-transparent">
                            aniversário
@@ -60,7 +60,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                         <br />
                         de um jeito especial
                      </h1>
-                     <p className="max-w-[64ch] text-center text-base font-medium text-gray-primary">
+                     <p className="max-w-[64ch] px-4 text-center text-sm font-medium text-gray-primary md:px-0 md:text-base">
                         Crie páginas de aniversário que ajudam você a expressar
                         seus sentimentos com mensagens personalizadas, vídeos e
                         muito mais.
@@ -69,7 +69,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                         <Button variant="gradient">Começar agora</Button>
                      </div>
                   </div>
-                  <div>
+                  <div className="relative mb-10 px-4">
                      <HeroVideoDialog
                         className="block dark:hidden"
                         animationStyle="from-center"

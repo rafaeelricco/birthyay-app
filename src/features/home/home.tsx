@@ -67,14 +67,16 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                            <span className="bg-gradient-to-tl from-gradient-start via-gradient-middle to-gradient-end bg-clip-text text-transparent">
                               Cartinhas digitais
                            </span>{' '}
-                           tão únicas
+                           únicas
                            <br />
-                           quanto cada aniversário
+                           como cada aniversário
                         </h1>
-                        <p className="max-w-[64ch] px-4 text-center text-sm font-medium text-gray-primary md:px-0 md:text-base">
-                           Crie páginas de aniversário que ajudam você a
-                           expressar seus sentimentos com mensagens
-                           personalizadas, vídeos e muito mais.
+                        <p className="px-4 text-center text-sm font-medium text-gray-primary md:px-0 md:text-base">
+                           Crie uma experiência personalizada com fotos, vídeos
+                           e mensagens especiais.
+                           <br className="hidden md:block" /> Transforme suas
+                           memórias em uma surpresa inesquecível para quem você
+                           ama.
                         </p>
                      </div>
                      <div className="flex gap-4">

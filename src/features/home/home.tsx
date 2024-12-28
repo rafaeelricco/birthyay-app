@@ -38,7 +38,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({
          <div className="relative min-h-screen">
             <Header dictionary={dictionary} />
             <div className="relative flex h-[calc(100vh-88px)] flex-col items-center justify-center md:mt-28 md:h-full">
-               <div className="z-10 flex h-full w-full flex-col items-center justify-center gap-4 space-y-4 md:pb-16">
+               <div className="z-10 flex w-full flex-col items-center justify-center gap-4 pb-12 md:space-y-4 md:pb-16">
                   <div className="z-10 flex items-center justify-center">
                      <AnimatedGradientText>
                         🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{' '}
@@ -52,19 +52,21 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                      </AnimatedGradientText>
                   </div>
                   <div className="flex flex-col items-center justify-center space-y-4">
-                     <h1 className="text-center text-4xl font-bold text-black-primary md:text-6xl">
-                        O seu feliz{' '}
-                        <span className="bg-gradient-to-tl from-gradient-start via-gradient-middle to-gradient-end bg-clip-text text-transparent">
-                           aniversário
-                        </span>{' '}
-                        <br />
-                        de um jeito especial
-                     </h1>
-                     <p className="max-w-[64ch] px-4 text-center text-sm font-medium text-gray-primary md:px-0 md:text-base">
-                        Crie páginas de aniversário que ajudam você a expressar
-                        seus sentimentos com mensagens personalizadas, vídeos e
-                        muito mais.
-                     </p>
+                     <div className="space-y-2 md:space-y-4">
+                        <h1 className="text-center text-3xl font-bold text-black-primary md:text-6xl">
+                           O seu feliz{' '}
+                           <span className="bg-gradient-to-tl from-gradient-start via-gradient-middle to-gradient-end bg-clip-text text-transparent">
+                              aniversário
+                           </span>{' '}
+                           <br />
+                           de um jeito especial
+                        </h1>
+                        <p className="max-w-[64ch] px-4 text-center text-sm font-medium text-gray-primary md:px-0 md:text-base">
+                           Crie páginas de aniversário que ajudam você a
+                           expressar seus sentimentos com mensagens
+                           personalizadas, vídeos e muito mais.
+                        </p>
+                     </div>
                      <div className="flex gap-4">
                         <Button variant="gradient-animated">
                            Começar agora
@@ -144,10 +146,10 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                repeatDelay={1}
                className={cn(
                   '[mask-image:radial-gradient(100%_100%_at_center,white,transparent)]',
-                  'absolute inset-0 -z-10 h-screen w-screen opacity-50'
+                  'fixed inset-0 -z-10 h-screen w-screen opacity-50'
                )}
             />
-            <div className="absolute right-0 top-14 -z-10 h-[962px] w-[962px] rounded-full bg-gradient-to-r from-[#cdb6ff] via-[#ff94c6] to-[#ffc78c] opacity-40 blur-[200px]" />
+            <div className="fixed right-0 top-14 -z-10 h-[962px] w-[962px] rounded-full bg-gradient-to-r from-[#cdb6ff] via-[#ff94c6] to-[#ffc78c] opacity-40 blur-[200px]" />
          </div>
       </React.Fragment>
    )

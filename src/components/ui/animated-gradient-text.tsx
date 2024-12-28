@@ -11,10 +11,7 @@ export default function AnimatedGradientText({
    return (
       <div
          className={cn(
-            'group relative mx-auto flex max-w-fit touch-none select-none flex-row items-center justify-center rounded-full px-4 py-1.5 text-sm font-medium backdrop-blur-sm transition-shadow duration-500 ease-out [--bg-size:300%]',
-            'before:absolute before:inset-0 before:-z-10 before:animate-gradient before:rounded-full before:bg-gradient-to-r before:from-[#ffaa40] before:via-[#9c40ff] before:to-[#ffaa40] before:bg-[length:var(--bg-size)_100%] before:opacity-10',
-            'after:absolute after:inset-[1px] after:-z-10 after:rounded-full after:bg-[linear-gradient(103.91deg,#CAB7FF_-54.06%_0.2,#FF9BC5_50%_0.2,#FFCA95_100%_0.2)] after:backdrop-blur-sm',
-            'dark:bg-black/5 bg-white/5',
+            'dark:bg-black/40 group relative mx-auto flex max-w-fit touch-none select-none flex-row items-center justify-center rounded-2xl bg-white/40 px-4 py-1.5 text-sm font-medium shadow-[inset_0_-8px_10px_#8fdfff1f] backdrop-blur-sm transition-shadow duration-500 ease-out [--bg-size:300%] hover:shadow-[inset_0_-5px_10px_#8fdfff3f]',
             className
          )}
       >

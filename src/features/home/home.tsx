@@ -8,8 +8,6 @@ import { DictionaryProps } from '@/types/dictionary'
 import { EditorProps } from 'react-draft-wysiwyg'
 
 import { Logo } from '@/components/icons/logo'
-import AnimatedGradientText from '@/components/ui/animated-gradient-text'
-import AnimatedGridPattern from '@/components/ui/animated-grid-pattern'
 import { Button } from '@/components/ui/button'
 import { Dropzone } from '@/components/ui/dropzone'
 import { Header } from '@/components/ui/header'
@@ -19,11 +17,16 @@ import { SafariFrame } from '@/components/ui/safari-frame'
 import { cn } from '@/lib/utils'
 import { EditorState } from 'draft-js'
 
+import AnimatedGradientText from '@/components/ui/animated-gradient-text'
+import AnimatedGridPattern from '@/components/ui/animated-grid-pattern'
+
 const Editor = dynamic<EditorProps>(
    () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
    {
       ssr: false,
-      loading: () => <div>Loading...</div>
+      loading: () => (
+         <div className="min-h-[449px] animate-pulse rounded-lg bg-neutral-100 dark:bg-neutral-800" />
+      )
    }
 )
 
@@ -68,12 +71,11 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                      </p>
                      <div className="flex gap-4">
                         <Button variant="gradient">Começar agora</Button>
-                        {/* <Button variant="outline">Saiba mais</Button> */}
                      </div>
                   </div>
                   <SafariFrame url="birthyay.net">
                      <div className="mx-auto my-0 max-w-[70%] space-y-4">
-                        <div className="w-full py-4">
+                        <div className="w-full py-4 pt-6">
                            <Logo className="mx-auto my-0 w-28 antialiased" />
                         </div>
                         <div className="grid justify-items-center">
@@ -134,9 +136,7 @@ const editor_toolbar_options = {
       'textAlign',
       'colorPicker',
       'emoji',
-      'image',
-      'remove',
-      'history'
+      'image'
    ],
    fontSize: {
       inDropdown: true,
@@ -210,86 +210,4 @@ const birthdaySchema = z.object({
 
 type Birthday = z.infer<typeof birthdaySchema>
 
-const TextEditor: React.FC = () => {
-   return <React.Fragment></React.Fragment>
-}
-
-/* const handleEditorChange = (editorState: EditorState) => {
-   const raw = convertToRaw(editorState.getCurrentContent())
-   const html = draftToHtml(raw)
-
-   if (html !== '<p></p>') {
-      setValue('content', html)
-      setValue('raw', raw)
-      trigger('content')
-   }
-} */
-
-/* interface CustomTextEditorProps {
-    onAdd: () => void
-    onCancel: () => void
-    register: UseFormRegister<any>
-    setValue: UseFormSetValue<any>
-    trigger: UseFormTrigger<any>
-    reset: UseFormReset<any>
-    errors: FieldErrors<CustomDocumentProps>
-    initialContentState: RawDraftContentState | undefined
-    text: string
-    dictionary: DictionaryProps['dictionary']
- }
- 
- const CustomTextEditor: React.FC<CustomTextEditorProps> = ({
-    onAdd,
-    onCancel,
-    register,
-    errors,
-    initialContentState,
-    reset,
-    setValue,
-    trigger,
-    text,
-    dictionary
- }: CustomTextEditorProps) => {
-    
- 
-    return (
-       <React.Fragment>
-          <Input.Root>
-             <Input.Label>Título dos termos</Input.Label>
-             <Input.Input
-                {...register('title')}
-                placeholder="Insira um título"
-                onInput={(e) => {
-                   setValue('title', e.currentTarget.value)
-                   trigger('title')
-                }}
-             />
-             <Input.Error>{errors.title?.message}</Input.Error>
-          </Input.Root>
-          <Input.Root>
-             <Input.Label>Termos</Input.Label>
-             <Editor
-                toolbarClassName="editor-toolbar"
-                wrapperClassName="editor-wrapper"
-                editorClassName="editor-style"
-                placeholder={dictionary?.common.description_here}
-                initialContentState={initialContentState as RawDraftContentState}
-                handlePastedText={() => false}
-                onEditorStateChange={handleEditorChange}
-             />
-             <Input.Error>{errors.content?.message}</Input.Error>
-          </Input.Root>
-          <hr />
-          <div className="flex items-center gap-4 min-w-full">
-             <Button.Button className="p-4 py-3" variant="outline" onClick={onCancel}>
-                Cancelar
-             </Button.Button>
-             <Button.Button className="p-4 py-3" type="button" variant="primary" onClick={onAdd}>
-                {text}
-             </Button.Button>
-          </div>
-       </React.Fragment>
-    )
- }
- */
 export { HomeComponent }

@@ -19,6 +19,7 @@ import { EditorState } from 'draft-js'
 
 import AnimatedGradientText from '@/components/ui/animated-gradient-text'
 import AnimatedGridPattern from '@/components/ui/animated-grid-pattern'
+import { editor_toolbar_options } from '@/lib/react-draft-wysiwyg'
 
 const Editor = dynamic<EditorProps>(
    () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
@@ -93,7 +94,6 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                            </Label>
                            <Input
                               value={name}
-                              className="min-h-[54px] w-full text-4xl font-semibold text-black-primary ring-offset-0 focus-visible:ring-0 focus-visible:ring-offset-0"
                               onChange={(e) => setName(e.target.value)}
                            />
                         </div>
@@ -102,9 +102,9 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                            wrapperClassName="editor-wrapper"
                            editorClassName="editor-style"
                            toolbar={editor_toolbar_options}
-                           onEditorStateChange={(editorState: EditorState) => {
-                              console.log(editorState)
-                           }}
+                           onEditorStateChange={(
+                              editorState: EditorState
+                           ) => {}}
                         />
                      </div>
                   </SafariFrame>
@@ -124,79 +124,6 @@ const HomeComponent: React.FC<DictionaryProps> = ({
          </div>
       </React.Fragment>
    )
-}
-
-const editor_toolbar_options = {
-   options: [
-      'inline',
-      'blockType',
-      'fontSize',
-      'fontFamily',
-      'list',
-      'textAlign',
-      'colorPicker',
-      'emoji',
-      'image'
-   ],
-   fontSize: {
-      inDropdown: true,
-      options: [8, 9, 10, 11, 12, 14, 16, 18, 24, 30, 36, 48, 60, 72, 96],
-      className: undefined,
-      component: undefined,
-      dropdownClassName: undefined
-   },
-   fontFamily: {
-      inDropdown: true,
-      options: [
-         'Montserrat',
-         'Roboto',
-         'Inter',
-         'Work Sans',
-         'Dosis',
-         'Inconsolata'
-      ],
-      className: undefined,
-      component: undefined,
-      dropdownClassName: undefined
-   },
-   inline: {
-      inDropdown: true,
-      options: [
-         'bold',
-         'italic',
-         'underline',
-         'strikethrough',
-         'monospace',
-         'superscript',
-         'subscript'
-      ]
-   },
-   blockType: {
-      inDropdown: true,
-      options: [
-         'Normal',
-         'H1',
-         'H2',
-         'H3',
-         'H4',
-         'H5',
-         'H6',
-         'Blockquote',
-         'Code'
-      ]
-   },
-   list: {
-      inDropdown: true,
-      options: ['unordered', 'ordered', 'indent', 'outdent']
-   },
-   textAlign: {
-      inDropdown: true,
-      options: ['left', 'center', 'right', 'justify']
-   },
-   image: {
-      inDropdown: true,
-      options: ['image', 'unlink']
-   }
 }
 
 const birthdaySchema = z.object({

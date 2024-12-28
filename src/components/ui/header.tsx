@@ -3,16 +3,26 @@
 import { PanelLeftIcon } from '@/components/icons/header'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip'
+import {
+   Tooltip,
+   TooltipContent,
+   TooltipProvider,
+   TooltipTrigger
+} from '@/components/ui/tooltip'
 import { Logo } from '@/icons/logo'
 import { cn } from '@/lib/utils'
 import { general_routes } from '@/routes/general'
 import { DictionaryProps } from '@/types/dictionary'
+import { LINKS } from '@/utils/links'
+import { Github } from 'lucide-react'
 
 import Link from 'next/link'
 import React from 'react'
 
-const Header: React.FC<DictionaryProps> = ({ dictionary, className }: HeaderProps) => {
+const Header: React.FC<DictionaryProps> = ({
+   dictionary,
+   className
+}: HeaderProps) => {
    return (
       <React.Fragment>
          <nav className={cn('w-full py-6', className)}>
@@ -37,8 +47,16 @@ const Header: React.FC<DictionaryProps> = ({ dictionary, className }: HeaderProp
                                              <Link
                                                 href={item.link}
                                                 className="font-sf-pro-display text-black-500 hover:text-black-500/80 flex-shrink cursor-pointer hover:underline"
-                                                target={item.external ? '_blank' : '_self'}
-                                                rel={item.external ? 'noreferrer' : undefined}
+                                                target={
+                                                   item.external
+                                                      ? '_blank'
+                                                      : '_self'
+                                                }
+                                                rel={
+                                                   item.external
+                                                      ? 'noreferrer'
+                                                      : undefined
+                                                }
                                              >
                                                 {item.label}
                                              </Link>
@@ -46,15 +64,21 @@ const Header: React.FC<DictionaryProps> = ({ dictionary, className }: HeaderProp
                                        </div>
                                     </TooltipTrigger>
                                     <TooltipContent side="bottom">
-                                       <p className="font-sf-pro-display text-base">{item.tooltip}</p>
+                                       <p className="font-sf-pro-display text-base">
+                                          {item.tooltip}
+                                       </p>
                                     </TooltipContent>
                                  </Tooltip>
                               </TooltipProvider>
                            </li>
                         </ul>
                      ))}
-                     <Button disabled variant={'gradient'} onClick={() => {}}>
-                        Entrar em contato
+                     <Button
+                        variant={'ghost'}
+                        size={'icon'}
+                        onClick={() => window.open(LINKS.GITHUB, '_blank')}
+                     >
+                        <Github className="size-5" />
                      </Button>
                   </div>
                </div>
@@ -73,13 +97,15 @@ const Header: React.FC<DictionaryProps> = ({ dictionary, className }: HeaderProp
                               className="bg-primary text-primary-foreground group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold md:text-base"
                               prefetch={false}
                            >
-                              <span className="sr-only">© 2024 Ricco Ltda. All rights reserved.</span>
+                              <span className="sr-only">
+                                 © 2024 Ricco Ltda. All rights reserved.
+                              </span>
                            </Link>
                            {items.map((item, index) => (
                               <Link
                                  key={item.id + index}
                                  href={item.link}
-                                 className="text-muted-foreground flex items-center gap-4 px-2.5 hover:text-foreground hover:underline"
+                                 className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5 hover:underline"
                                  prefetch={false}
                               >
                                  {item.label}
@@ -99,27 +125,19 @@ const items = [
    {
       id: 1,
       label: 'Início',
-      tooltip: 'Página inicial.',
+      tooltip: 'Página inicial do site.',
       disabled: false,
       link: general_routes.home,
       external: false
    },
    {
       id: 2,
-      label: 'Contagem regressiva',
-      tooltip: 'Contagem regressiva para o aniversário.',
+      label: 'Criar cartinha digital',
+      tooltip: 'Crie uma cartinha digital personalizada.',
       disabled: true,
       link: '/countdown',
       external: false
    }
-   //    {
-   //       id: 4,
-   //       label: 'GitHub',
-   //       tooltip: 'Repositório do projeto.',
-   //       disabled: false,
-   //       link: 'https://github.com/rafaeelricco/converto-app',
-   //       external: true
-   //    }
 ]
 
 type HeaderProps = {

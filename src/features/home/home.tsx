@@ -69,20 +69,22 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                         <Button variant="gradient">Começar agora</Button>
                      </div>
                   </div>
-                  <HeroVideoDialog
-                     className="block dark:hidden"
-                     animationStyle="from-center"
-                     videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
-                     thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
-                     thumbnailAlt="Hero Video"
-                  />
-                  <HeroVideoDialog
-                     className="hidden dark:block"
-                     animationStyle="from-center"
-                     videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
-                     thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
-                     thumbnailAlt="Hero Video"
-                  />
+                  <div>
+                     <HeroVideoDialog
+                        className="block dark:hidden"
+                        animationStyle="from-center"
+                        videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+                        thumbnailSrc="https://startup-template-sage.vercel.app/hero-light.png"
+                        thumbnailAlt="Hero Video"
+                     />
+                     <HeroVideoDialog
+                        className="hidden dark:block"
+                        animationStyle="from-center"
+                        videoSrc="https://www.youtube.com/embed/qh3NGpYRG3I?si=4rb-zSdDkVK9qxxb"
+                        thumbnailSrc="https://startup-template-sage.vercel.app/hero-dark.png"
+                        thumbnailAlt="Hero Video"
+                     />
+                  </div>
                   {/* <SafariFrame url="birthyay.net">
                      <div className="mx-auto my-0 max-w-[70%] space-y-4">
                         <div className="w-full py-4 pt-6">

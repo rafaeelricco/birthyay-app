@@ -1,20 +1,20 @@
 'use client'
 
-import dynamic from 'next/dynamic'
 import * as React from 'react'
-import * as z from 'zod'
 
 import { Button } from '@/components/ui/button'
 import { Header } from '@/components/ui/header'
 import { cn } from '@/lib/utils'
 import { DictionaryProps } from '@/types/dictionary'
-import { EditorState } from 'draft-js'
+import { useRouter } from 'next/navigation'
 import { EditorProps } from 'react-draft-wysiwyg'
 
 import AnimatedGradientText from '@/components/ui/animated-gradient-text'
 import AnimatedGridPattern from '@/components/ui/animated-grid-pattern'
 import HeroVideoDialog from '@/components/ui/hero-video-dialog'
+import { ROUTES } from '@/routes/general'
 import confetti from 'canvas-confetti'
+import dynamic from 'next/dynamic'
 
 const Editor = dynamic<EditorProps>(
    () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
@@ -29,11 +29,7 @@ const Editor = dynamic<EditorProps>(
 const HomeComponent: React.FC<DictionaryProps> = ({
    dictionary
 }: DictionaryProps) => {
-   const [name, setName] = React.useState('')
-   const [editorState, setEditorState] = React.useState<
-      EditorState | undefined
-   >()
-   const [isUsingPointer, setIsUsingPointer] = React.useState(false)
+   const router = useRouter()
 
    return (
       <React.Fragment>
@@ -43,8 +39,6 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                <div className="z-10 flex w-full flex-col items-center justify-center gap-4 pb-12 md:space-y-4 md:pb-16">
                   <div
                      className="no-selection z-10 flex cursor-pointer items-center justify-center transition-all duration-300 active:scale-90"
-                     onPointerDown={() => setIsUsingPointer(true)}
-                     onPointerUp={() => setIsUsingPointer(false)}
                      onClick={() => {
                         confetti({
                            particleCount: 100,
@@ -83,7 +77,12 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                         </p>
                      </div>
                      <div className="flex gap-4">
-                        <Button variant="gradient-animated">
+                        <Button
+                           variant="gradient-animated"
+                           onClick={() => {
+                              router.push(ROUTES.CREATE_BIRTHDAY_CARD.path)
+                           }}
+                        >
                            Criar minha cartinha digital
                         </Button>
                      </div>
@@ -169,16 +168,5 @@ const HomeComponent: React.FC<DictionaryProps> = ({
       </React.Fragment>
    )
 }
-
-const birthdaySchema = z.object({
-   id: z.string().uuid(),
-   files: z.array(z.instanceof(File)).max(5, 'Maximum of 5 files allowed'),
-   message: z.object({
-      title: z.string().min(1, 'Title is required').max(100, 'Title too long'),
-      body: z.string().min(1, 'Message body is required')
-   })
-})
-
-type Birthday = z.infer<typeof birthdaySchema>
 
 export { HomeComponent }

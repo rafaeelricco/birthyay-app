@@ -11,7 +11,7 @@ import {
 } from '@/components/ui/tooltip'
 import { Logo } from '@/icons/logo'
 import { cn } from '@/lib/utils'
-import { general_routes } from '@/routes/general'
+import { ROUTES } from '@/routes/general'
 import { DictionaryProps } from '@/types/dictionary'
 import { LINKS } from '@/utils/links'
 import { Github } from 'lucide-react'
@@ -130,7 +130,7 @@ const items = [
       label: 'Início',
       tooltip: 'Página inicial do site.',
       disabled: false,
-      link: general_routes.home,
+      link: ROUTES.HOME.path,
       external: false
    },
    {
@@ -138,7 +138,7 @@ const items = [
       label: 'Criar cartinha digital',
       tooltip: 'Crie uma cartinha digital personalizada.',
       disabled: true,
-      link: '/countdown',
+      link: ROUTES.CREATE_BIRTHDAY_CARD.path,
       external: false
    }
 ]

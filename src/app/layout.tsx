@@ -21,7 +21,8 @@ import { Toaster } from 'sonner'
 const interFont = Inter({
    subsets: ['latin'],
    weight: ['400', '500', '600', '700'],
-   variable: '--font-inter'
+   variable: '--font-inter',
+   preload: true
 })
 
 const montserratFont = Montserrat({

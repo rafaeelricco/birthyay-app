@@ -12,6 +12,7 @@ import { useRouter } from 'next/navigation'
 import AnimatedGradientText from '@/components/ui/animated-gradient-text'
 import AnimatedGridPattern from '@/components/ui/animated-grid-pattern'
 import HeroVideoDialog from '@/components/ui/hero-video-dialog'
+import WordRotate from '@/components/ui/word-rotate'
 import confetti from 'canvas-confetti'
 
 const HomeComponent: React.FC<DictionaryProps> = ({
@@ -37,14 +38,12 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                      }}
                   >
                      <AnimatedGradientText>
-                        🎉&nbsp;{' '}
-                        <span
-                           className={cn(
-                              `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
-                           )}
-                        >
-                           Clique aqui
-                        </span>
+                        <WordRotate
+                           words={messages}
+                           // className={cn(
+                           //    `inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
+                           // )}
+                        />
                      </AnimatedGradientText>
                   </div>
                   <div className="flex flex-col items-center justify-center space-y-4">
@@ -108,5 +107,28 @@ const HomeComponent: React.FC<DictionaryProps> = ({
       </React.Fragment>
    )
 }
+
+const messages = [
+   '🎁 Transforme momentos em memórias eternas',
+   '💝 Cada cartinha tem um significado especial',
+   '💌 Surpreenda com uma mensagem do coração',
+   '📸 Suas fotos contam histórias únicas',
+   '✨ Eternize momentos que marcaram vocês',
+   '💕 Demonstre carinho de uma forma especial',
+   '🎨 Cada detalhe conta uma parte dessa história',
+   '🎉 Crie surpresas que tocam o coração',
+   '💫 Guarde momentos para sempre',
+   '🤗 Celebre com quem você ama',
+   '💝 Compartilhe mais que uma mensagem',
+   '⭐ Memórias que merecem ser eternizadas',
+   '🎈 Cada momento merece ser celebrado',
+   '🎀 Dê um presente cheio de significado',
+   '📱 Suas lembranças em uma cartinha especial',
+   '💖 Transforme carinho em surpresa',
+   '✨ Mostre o quanto alguém é especial',
+   '🌟 Crie momentos inesquecíveis',
+   '💫 Faça parte dessa história',
+   '🎊 Celebre cada momento importante'
+]
 
 export { HomeComponent }

@@ -91,7 +91,6 @@ const Header: React.FC<DictionaryProps> = ({
                            className="group rounded-lg border border-gray-400 transition-all duration-300 hover:border-gray-950 active:scale-95"
                         >
                            <PanelLeftIcon className="h-5 w-5 text-gray-400 transition-all duration-300 group-hover:text-gray-950" />
-                           <span className="sr-only">Toggle Menu</span>
                         </Button>
                      </SheetTrigger>
                      <SheetContent side="right" className="sm:max-w-xs">

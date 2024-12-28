@@ -4,17 +4,17 @@ import dynamic from 'next/dynamic'
 import * as React from 'react'
 import * as z from 'zod'
 
-import { DictionaryProps } from '@/types/dictionary'
-import { EditorProps } from 'react-draft-wysiwyg'
-
 import { Button } from '@/components/ui/button'
 import { Header } from '@/components/ui/header'
 import { cn } from '@/lib/utils'
+import { DictionaryProps } from '@/types/dictionary'
 import { EditorState } from 'draft-js'
+import { EditorProps } from 'react-draft-wysiwyg'
 
 import AnimatedGradientText from '@/components/ui/animated-gradient-text'
 import AnimatedGridPattern from '@/components/ui/animated-grid-pattern'
 import HeroVideoDialog from '@/components/ui/hero-video-dialog'
+import confetti from 'canvas-confetti'
 
 const Editor = dynamic<EditorProps>(
    () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
@@ -33,18 +33,33 @@ const HomeComponent: React.FC<DictionaryProps> = ({
    const [editorState, setEditorState] = React.useState<
       EditorState | undefined
    >()
+   const [isUsingPointer, setIsUsingPointer] = React.useState(false)
+
    return (
       <React.Fragment>
          <div className="relative min-h-screen">
             <Header dictionary={dictionary} />
             <div className="relative flex h-[calc(100vh-88px)] flex-col items-center justify-center md:mt-28 md:h-full">
                <div className="z-10 flex w-full flex-col items-center justify-center gap-4 pb-12 md:space-y-4 md:pb-16">
-                  <div className="z-10 flex items-center justify-center">
+                  <div
+                     className="no-selection z-10 flex cursor-pointer items-center justify-center transition-all duration-300 active:scale-90"
+                     onPointerDown={() => setIsUsingPointer(true)}
+                     onPointerUp={() => setIsUsingPointer(false)}
+                     onClick={() => {
+                        confetti({
+                           particleCount: 100,
+                           spread: 70,
+                           origin: { y: 0.6 },
+                           colors: ['#8a30e3', '#ee6ba1', '#eac893']
+                        })
+                     }}
+                  >
                      <AnimatedGradientText>
-                        🎉 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{' '}
+                        <span className="select-none">🎉</span>{' '}
+                        <hr className="mx-2 h-4 w-px shrink-0 select-none bg-gray-300" />{' '}
                         <span
                            className={cn(
-                              'inline animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text font-inter font-semibold text-transparent'
+                              'inline animate-gradient select-none bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text font-inter font-semibold text-transparent'
                            )}
                         >
                            E aí, felizardo(a)!

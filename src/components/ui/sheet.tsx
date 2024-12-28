@@ -63,7 +63,7 @@ const SheetContent = React.forwardRef<
          className={cn(sheetVariants({ side }), className)}
          {...props}
       >
-         <SheetPrimitive.Title>
+         <SheetPrimitive.Title className="touch-none select-none">
             <span className="sr-only">Toggle Menu</span>
          </SheetPrimitive.Title>
          {children}

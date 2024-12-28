@@ -69,11 +69,11 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                      </div>
                      <div className="flex gap-4">
                         <Button variant="gradient-animated">
-                           Começar agora
+                           Criar minha cartinha digital
                         </Button>
                      </div>
                   </div>
-                  <div className="relative px-4">
+                  <div className="relative mt-4 px-4 md:mt-0">
                      <HeroVideoDialog
                         className="block dark:hidden"
                         animationStyle="from-center"

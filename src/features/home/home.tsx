@@ -1,6 +1,7 @@
 'use client'
 
 import * as React from 'react'
+import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Header } from '@/components/ui/header'
@@ -19,6 +20,19 @@ const HomeComponent: React.FC<DictionaryProps> = ({
    dictionary
 }: DictionaryProps) => {
    const router = useRouter()
+   const [currentMessageIndex, setCurrentMessageIndex] = useState(0)
+
+   useEffect(() => {
+      const interval = setInterval(() => {
+         setTimeout(() => {
+            setCurrentMessageIndex(
+               (prevIndex) => (prevIndex + 1) % messages.length
+            )
+         }, 300)
+      }, 4000)
+
+      return () => clearInterval(interval)
+   }, [])
 
    return (
       <React.Fragment>
@@ -39,7 +53,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                   >
                      <AnimatedGradientText>
                         <WordRotate
-                           words={messages}
+                           word={messages[currentMessageIndex]}
                            className={cn(
                               `animate-gradient bg-gradient-to-r from-[#ffaa40] via-[#9c40ff] to-[#ffaa40] bg-[length:var(--bg-size)_100%] bg-clip-text text-transparent`
                            )}

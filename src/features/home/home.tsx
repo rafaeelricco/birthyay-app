@@ -149,7 +149,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                   'fixed inset-0 -z-10 h-screen w-screen opacity-50'
                )}
             />
-            <div className="fixed right-0 top-14 -z-10 h-[962px] w-[962px] rounded-full bg-gradient-to-r from-[#cdb6ff] via-[#ff94c6] to-[#ffc78c] opacity-40 blur-[200px]" />
+            <div className="fixed right-0 top-52 -z-10 h-[481px] w-[481px] rounded-full bg-gradient-to-r from-[#cdb6ff] via-[#ff94c6] to-[#ffc78c] opacity-40 blur-[100px] md:top-14 md:h-[962px] md:w-[962px] md:blur-[200px]" />
          </div>
       </React.Fragment>
    )

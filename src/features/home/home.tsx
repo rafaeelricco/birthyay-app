@@ -51,7 +51,7 @@ const HomeComponent: React.FC<DictionaryProps> = ({
                         })
                      }}
                   >
-                     <AnimatedGradientText>
+                     <AnimatedGradientText className="bg-transparent backdrop-blur-sm">
                         <WordRotate
                            word={messages[currentMessageIndex]}
                            className="text-black-primary"

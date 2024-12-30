@@ -96,3 +96,15 @@ input {
    user-select: none;
    touch-action: none;
 }
+
+.text-gradient-primary {
+   background: linear-gradient(
+      to top left,
+      theme('colors.gradient.start'),
+      theme('colors.gradient.middle'),
+      theme('colors.gradient.end')
+   );
+   -webkit-background-clip: text;
+   background-clip: text;
+   color: transparent;
+}

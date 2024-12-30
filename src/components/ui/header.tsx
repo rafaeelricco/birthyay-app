@@ -1,5 +1,7 @@
 'use client'
 
+import * as React from 'react'
+
 import { PanelLeftIcon } from '@/components/icons/header'
 import { Button } from '@/components/ui/button'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
@@ -15,19 +17,25 @@ import { ROUTES } from '@/routes/general'
 import { DictionaryProps } from '@/types/dictionary'
 import { LINKS } from '@/utils/links'
 import { Github } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 import Link from 'next/link'
-import React from 'react'
 
 const Header: React.FC<DictionaryProps> = ({
    dictionary,
    className
 }: HeaderProps) => {
+   const pathname = usePathname()
+
+   const isActive = (path: string) => pathname.includes(path)
+
    return (
       <React.Fragment>
          <nav className={cn('w-full py-6', className)}>
             <div className="container flex items-center justify-between">
-               <Logo className="w-28 antialiased" />
+               <Link prefetch={false} href={ROUTES.HOME.path}>
+                  <Logo className="w-28 antialiased" />
+               </Link>
                <div className="grid items-center gap-12">
                   <div className="hidden grid-flow-col items-center gap-12 lg:grid">
                      {items.map((item, index) => (
@@ -46,7 +54,14 @@ const Header: React.FC<DictionaryProps> = ({
                                           ) : (
                                              <Link
                                                 href={item.link}
-                                                className="font-sf-pro-display text-black-500 hover:text-black-500/80 flex-shrink cursor-pointer hover:underline"
+                                                prefetch={false}
+                                                className={cn(
+                                                   'font-sf-pro-display text-black-500 hover:text-black-500/80 flex-shrink cursor-pointer hover:underline',
+                                                   {
+                                                      'text-gradient-primary':
+                                                         isActive(item.link)
+                                                   }
+                                                )}
                                                 target={
                                                    item.external
                                                       ? '_blank'
@@ -96,9 +111,9 @@ const Header: React.FC<DictionaryProps> = ({
                      <SheetContent side="right" className="sm:max-w-xs">
                         <nav className="grid gap-6 text-lg font-medium">
                            <Link
-                              href="#"
-                              className="bg-primary text-primary-foreground group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold md:text-base"
+                              href={ROUTES.HOME.path}
                               prefetch={false}
+                              className="bg-primary text-primary-foreground group flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-full text-lg font-semibold md:text-base"
                            >
                               <span className="sr-only">
                                  © 2024 Ricco Ltda. All rights reserved.
@@ -106,10 +121,10 @@ const Header: React.FC<DictionaryProps> = ({
                            </Link>
                            {items.map((item, index) => (
                               <Link
+                                 prefetch={false}
                                  key={item.id + index}
                                  href={item.link}
                                  className="text-muted-foreground hover:text-foreground flex items-center gap-4 px-2.5 hover:underline"
-                                 prefetch={false}
                               >
                                  {item.label}
                               </Link>
@@ -137,7 +152,7 @@ const items = [
       id: 2,
       label: 'Criar cartinha digital',
       tooltip: 'Crie uma cartinha digital personalizada.',
-      disabled: true,
+      disabled: false,
       link: ROUTES.CREATE_BIRTHDAY_CARD.path,
       external: false
    }

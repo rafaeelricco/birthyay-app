@@ -12,7 +12,7 @@ const Dropzone: React.FC<DropzoneProps> = ({
    files,
    maxSize,
    message,
-   setFiles,
+   multiple = false,
    onDropFiles
 }: DropzoneProps) => {
    const {
@@ -22,12 +22,9 @@ const Dropzone: React.FC<DropzoneProps> = ({
       isDragAccept,
       isDragReject
    } = useDropzone({
-      multiple: false,
+      multiple: multiple || false,
       accept: { 'image/*': [] },
-      onDrop: (acceptedFiles) => {
-         setFiles(acceptedFiles)
-         onDropFiles(acceptedFiles)
-      }
+      onDrop: (acceptedFiles) => onDropFiles(acceptedFiles)
    })
 
    return (
@@ -89,7 +86,6 @@ const Dropzone: React.FC<DropzoneProps> = ({
                      className="h-4 w-4 cursor-pointer hover:text-red-500"
                      onClick={(e) => {
                         e.stopPropagation()
-                        setFiles([])
                         onDropFiles([])
                      }}
                   />
@@ -105,7 +101,7 @@ interface DropzoneProps {
    maxSize?: number
    message?: React.ReactNode
    className?: string
-   setFiles: (files: File[]) => void
+   multiple?: boolean
    onDropFiles: (files: File[]) => void
 }
 

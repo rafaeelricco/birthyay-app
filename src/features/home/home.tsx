@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react'
-import { useEffect, useState } from 'react'
 
 import { Button } from '@/components/ui/button'
 import { Header } from '@/components/ui/header'
@@ -20,9 +19,9 @@ const HomeComponent: React.FC<DictionaryProps> = ({
    dictionary
 }: DictionaryProps) => {
    const router = useRouter()
-   const [currentMessageIndex, setCurrentMessageIndex] = useState(0)
+   const [currentMessageIndex, setCurrentMessageIndex] = React.useState(0)
 
-   useEffect(() => {
+   React.useEffect(() => {
       const interval = setInterval(() => {
          setTimeout(() => {
             setCurrentMessageIndex(

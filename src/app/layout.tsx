@@ -1,6 +1,3 @@
-import '@mdxeditor/editor/style.css'
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css'
-
 import '@/styles/globals.css'
 import '@/styles/reset.css'
 import '@/styles/text-editor.css'

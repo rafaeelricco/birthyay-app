@@ -84,8 +84,8 @@ const CreateBirthdayCard: React.FC<CreateBirthdayCardProps> = ({
    return (
       <div className="container">
          <Header dictionary={dictionary} />
-         <div className="container space-y-4">
-            <div className="space-y-4">
+         <div className="container space-y-6">
+            <div className="space-y-6">
                <h3 className="font-inter text-lg font-semibold sm:text-2xl">
                   Criar sua cartinha digital
                </h3>

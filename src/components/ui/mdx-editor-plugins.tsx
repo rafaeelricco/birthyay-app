@@ -1,7 +1,15 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
+import * as React from 'react'
 
 import {
-   KitchenSinkToolbar,
+   BlockTypeSelect,
+   BoldItalicUnderlineToggles,
+   CreateLink,
+   InsertThematicBreak,
+   ListsToggle,
+   Separator,
+   StrikeThroughSupSubToggles,
+   UndoRedo,
    codeBlockPlugin,
    codeMirrorPlugin,
    diffSourcePlugin,
@@ -21,22 +29,21 @@ export const EDITOR_PLUGINS = [
    toolbarPlugin({
       toolbarClassName:
          'bg-transparent border-t border-gray-200 border-r border-l rounded-t-lg rounded-b-none',
-      //   toolbarContents: () => (
-      //      <React.Fragment>
-      //         <UndoRedo />
-      //         <Separator />
-      //         <BoldItalicUnderlineToggles />
-      //         <StrikeThroughSupSubToggles />
-      //         <Separator />
-      //         <ListsToggle />
-      //         <Separator />
-      //         <BlockTypeSelect />
-      //         <Separator />
-      //         <CreateLink />
-      //         <InsertThematicBreak />
-      //      </React.Fragment>
-      //   )
-      toolbarContents: () => <KitchenSinkToolbar />
+      toolbarContents: () => (
+         <React.Fragment>
+            <UndoRedo />
+            <Separator />
+            <BoldItalicUnderlineToggles />
+            <StrikeThroughSupSubToggles />
+            <Separator />
+            <ListsToggle />
+            <Separator />
+            <BlockTypeSelect />
+            <Separator />
+            <CreateLink />
+            <InsertThematicBreak />
+         </React.Fragment>
+      )
    }),
    listsPlugin(),
    quotePlugin(),

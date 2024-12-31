@@ -3,7 +3,6 @@
 import * as React from 'react'
 
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardFooter } from '@/components/ui/card'
 import { Dropzone } from '@/components/ui/dropzone'
 import { Header } from '@/components/ui/header'
 import { Input } from '@/components/ui/input'
@@ -85,86 +84,84 @@ const CreateBirthdayCard: React.FC<CreateBirthdayCardProps> = ({
    return (
       <div className="container">
          <Header dictionary={dictionary} />
-         <Card className="relative mx-4">
-            <CardContent className="space-y-4 px-6 py-4">
+         <div className="container space-y-4">
+            <div className="space-y-4">
+               <h3 className="font-inter text-lg font-semibold sm:text-2xl">
+                  Criar sua cartinha digital
+               </h3>
                <div className="space-y-4">
-                  <h3 className="font-inter text-lg font-semibold sm:text-2xl">
-                     Criar sua cartinha digital
-                  </h3>
-                  <div className="space-y-4">
-                     <Dropzone
-                        multiple
-                        files={[]}
-                        message={
-                           <React.Fragment>
-                              <p className="text-base">
-                                 <span className="cursor-default font-semibold underline">
-                                    Clique para enviar
-                                 </span>{' '}
-                                 ou arraste e solte
-                              </p>
-                              <p className="text-xs text-gray-500">
-                                 Tamanho máximo de {formatSize(419500000)}.
-                              </p>
-                           </React.Fragment>
-                        }
-                        className="min-h-[200px] bg-white"
-                        onDropFiles={(files) => setFiles(files)}
-                        maxSize={419500000}
-                     />
-                     {files.length > 0 && (
-                        <div className="space-y-2" ref={containerRef}>
-                           <h3 className="text-sm font-medium">
-                              Ordem dos arquivos
-                           </h3>
-                           <div className="w-full space-y-2">
-                              {files.map((file, index) => (
-                                 <div
-                                    key={file.name}
-                                    className="slot"
-                                    data-swapy-slot={`slot-${index}`}
-                                 >
-                                    <div
-                                       data-swapy-item={`slot-${index}`}
-                                       className="flex cursor-grab items-center gap-2 rounded-lg border bg-white px-2 py-3 hover:bg-gray-50 active:cursor-grabbing"
-                                    >
-                                       <div className="text-gray-400">
-                                          <GripVertical className="h-4 w-4" />
-                                       </div>
-                                       <span className="select-none">
-                                          {file.name}
-                                       </span>
-                                    </div>
-                                 </div>
-                              ))}
-                           </div>
-                        </div>
-                     )}
-                  </div>
-                  <div className="grid w-full items-center gap-1.5">
-                     <Label htmlFor="picture">Nome do aniversariante</Label>
-                     <Input />
-                  </div>
-                  <MDXEditor
-                     markdown={markdown}
-                     contentEditableClassName="prose prose-sm md:prose-base max-w-full font-inter prose-headings:font-inter prose-headings:font-semibold border rounded-lg rounded-tl-none rounded-tr-none min-h-[300px] px-4 py-2"
-                     onChange={(md) => {
-                        console.log('change', { md })
-                        setMarkdown(md)
-                     }}
-                     plugins={EDITOR_PLUGINS}
+                  <Dropzone
+                     multiple
+                     files={[]}
+                     message={
+                        <React.Fragment>
+                           <p className="text-base">
+                              <span className="cursor-default font-semibold underline">
+                                 Clique para enviar
+                              </span>{' '}
+                              ou arraste e solte
+                           </p>
+                           <p className="text-xs text-gray-500">
+                              Tamanho máximo de {formatSize(419500000)}.
+                           </p>
+                        </React.Fragment>
+                     }
+                     className="min-h-[200px] bg-white"
+                     onDropFiles={(files) => setFiles(files)}
+                     maxSize={419500000}
                   />
+                  {files.length > 0 && (
+                     <div className="space-y-2" ref={containerRef}>
+                        <h3 className="text-sm font-medium">
+                           Ordem dos arquivos
+                        </h3>
+                        <div className="w-full space-y-2">
+                           {files.map((file, index) => (
+                              <div
+                                 key={file.name}
+                                 className="slot"
+                                 data-swapy-slot={`slot-${index}`}
+                              >
+                                 <div
+                                    data-swapy-item={`slot-${index}`}
+                                    className="flex cursor-grab items-center gap-2 rounded-lg border bg-white px-2 py-3 hover:bg-gray-50 active:cursor-grabbing"
+                                 >
+                                    <div className="text-gray-400">
+                                       <GripVertical className="h-4 w-4" />
+                                    </div>
+                                    <span className="select-none">
+                                       {file.name}
+                                    </span>
+                                 </div>
+                              </div>
+                           ))}
+                        </div>
+                     </div>
+                  )}
                </div>
-            </CardContent>
-            <CardFooter className="flex justify-end">
+               <div className="grid w-full items-center gap-1.5">
+                  <Label htmlFor="picture">Nome do aniversariante</Label>
+                  <Input />
+               </div>
+               <MDXEditor
+                  markdown={markdown}
+                  contentEditableClassName="prose prose-sm md:prose-base max-w-full font-inter prose-headings:font-inter prose-headings:font-semibold border rounded-lg rounded-tl-none rounded-tr-none min-h-[300px] px-4 py-2"
+                  onChange={(md) => {
+                     console.log('change', { md })
+                     setMarkdown(md)
+                  }}
+                  plugins={EDITOR_PLUGINS}
+               />
+            </div>
+            <div className="flex justify-end">
                <Button
                   disabled={files.length === 0}
                   variant="gradient-animated"
                >
                   Pré-visualizar cartinha
                </Button>
-            </CardFooter>
-         </Card>
+            </div>
+         </div>
       </div>
    )
 }

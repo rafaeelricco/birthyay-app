@@ -8,24 +8,12 @@ import { Dropzone } from '@/components/ui/dropzone'
 import { Header } from '@/components/ui/header'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { editor_toolbar_options } from '@/lib/react-draft-wysiwyg'
+import { EDITOR_PLUGINS } from '@/components/ui/mdx-editor-plugins'
 import { formatSize } from '@/lib/react-dropzone'
 import { DictionaryProps } from '@/types/dictionary'
+import { MDXEditor } from '@mdxeditor/editor'
 import { GripVertical } from 'lucide-react'
-import { EditorProps, EditorState } from 'react-draft-wysiwyg'
 import { createSwapy, Swapy } from 'swapy'
-
-import dynamic from 'next/dynamic'
-
-const Editor = dynamic<EditorProps>(
-   () => import('react-draft-wysiwyg').then((mod) => mod.Editor),
-   {
-      ssr: false,
-      loading: () => (
-         <div className="min-h-[449px] animate-pulse rounded-lg bg-neutral-100 dark:bg-neutral-800" />
-      )
-   }
-)
 
 interface CreateBirthdayCardProps {
    dictionary: DictionaryProps['dictionary']
@@ -34,6 +22,7 @@ interface CreateBirthdayCardProps {
 const CreateBirthdayCard: React.FC<CreateBirthdayCardProps> = ({
    dictionary
 }: CreateBirthdayCardProps) => {
+   const [markdown, setMarkdown] = React.useState<string>('')
    const [files, setFiles] = React.useState<File[]>([])
    const [order, setOrder] = React.useState<number[]>([])
 
@@ -154,12 +143,15 @@ const CreateBirthdayCard: React.FC<CreateBirthdayCardProps> = ({
                      <Label htmlFor="picture">Nome do aniversariante</Label>
                      <Input />
                   </div>
-                  <Editor
-                     toolbarClassName="editor-toolbar"
-                     wrapperClassName="editor-wrapper"
-                     editorClassName="editor-style"
-                     toolbar={editor_toolbar_options}
-                     onEditorStateChange={(editorState: EditorState) => {}}
+                  <MDXEditor
+                     markdown={markdown}
+                     placeholder="Digite aqui o conteúdo da cartinha"
+                     contentEditableClassName="border font-inter rounded-lg rounded-tl-none rounded-tr-none min-h-[300px]"
+                     onChange={(md) => {
+                        console.log('change', { md })
+                        setMarkdown(md)
+                     }}
+                     plugins={EDITOR_PLUGINS}
                   />
                </div>
             </CardContent>

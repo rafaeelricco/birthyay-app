@@ -54,40 +54,6 @@ const config: Config = {
                   backgroundPosition: 'var(--bg-size) 0'
                }
             }
-         },
-         typography: {
-            sm: {
-               css: {
-                  hr: {
-                     marginTop: '1rem',
-                     marginBottom: '1rem'
-                  }
-               }
-            },
-            base: {
-               css: {
-                  hr: {
-                     marginTop: '1rem',
-                     marginBottom: '1rem'
-                  }
-               }
-            },
-            DEFAULT: {
-               css: {
-                  'h1, h2, h3, h4, h5, h6': {
-                     fontFamily: 'Inter, sans-serif',
-                     fontWeight: 600,
-                     color: '#34383A'
-                  },
-                  hr: {
-                     marginTop: '1rem',
-                     marginBottom: '1rem',
-                     borderTopWidth: '1px',
-                     borderColor: 'rgb(229 231 235)'
-                  },
-                  maxWidth: 'none'
-               }
-            }
          }
       }
    },

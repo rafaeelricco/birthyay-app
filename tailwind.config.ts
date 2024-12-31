@@ -54,9 +54,21 @@ const config: Config = {
                   backgroundPosition: 'var(--bg-size) 0'
                }
             }
+         },
+         typography: {
+            DEFAULT: {
+               css: {
+                  'h1, h2, h3, h4, h5, h6': {
+                     fontFamily: 'Inter, sans-serif',
+                     fontWeight: 600,
+                     color: '#34383A'
+                  },
+                  maxWidth: 'none'
+               }
+            }
          }
       }
    },
-   plugins: [tailwindcssAnimate]
+   plugins: [tailwindcssAnimate, require('@tailwindcss/typography')]
 }
 export default config

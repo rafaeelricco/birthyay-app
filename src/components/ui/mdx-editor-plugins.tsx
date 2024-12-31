@@ -28,7 +28,7 @@ import {
 export const EDITOR_PLUGINS = [
    toolbarPlugin({
       toolbarClassName:
-         'bg-transparent border-t border-gray-200 border-r border-l rounded-t-lg rounded-b-none',
+         'bg-transparent border-t border-gray-200 border-r border-l rounded-t-lg rounded-b-none flex flex-wrap gap-2',
       toolbarContents: () => (
          <React.Fragment>
             <UndoRedo />

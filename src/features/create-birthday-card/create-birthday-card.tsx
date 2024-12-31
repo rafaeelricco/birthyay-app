@@ -22,7 +22,9 @@ interface CreateBirthdayCardProps {
 const CreateBirthdayCard: React.FC<CreateBirthdayCardProps> = ({
    dictionary
 }: CreateBirthdayCardProps) => {
-   const [markdown, setMarkdown] = React.useState<string>('')
+   const [markdown, setMarkdown] = React.useState<string>(
+      'Digite aqui o conteúdo da cartinha'
+   )
    const [files, setFiles] = React.useState<File[]>([])
    const [order, setOrder] = React.useState<number[]>([])
 
@@ -145,8 +147,7 @@ const CreateBirthdayCard: React.FC<CreateBirthdayCardProps> = ({
                   </div>
                   <MDXEditor
                      markdown={markdown}
-                     placeholder="Digite aqui o conteúdo da cartinha"
-                     contentEditableClassName="border font-inter rounded-lg rounded-tl-none rounded-tr-none min-h-[300px]"
+                     contentEditableClassName="prose prose-sm md:prose-base max-w-full font-inter prose-headings:font-inter prose-headings:font-semibold border rounded-lg rounded-tl-none rounded-tr-none min-h-[300px] px-4 py-2"
                      onChange={(md) => {
                         console.log('change', { md })
                         setMarkdown(md)

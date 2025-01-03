@@ -3,6 +3,14 @@
 import * as React from 'react'
 
 import { Button } from '@/components/ui/button'
+import {
+   Dialog,
+   DialogContent,
+   DialogDescription,
+   DialogHeader,
+   DialogTitle,
+   DialogTrigger
+} from '@/components/ui/dialog'
 import { Dropzone } from '@/components/ui/dropzone'
 import { Header } from '@/components/ui/header'
 import { Input } from '@/components/ui/input'
@@ -84,7 +92,7 @@ const CreateBirthdayCard: React.FC<CreateBirthdayCardProps> = ({
    return (
       <div className="container">
          <Header dictionary={dictionary} />
-         <div className="container space-y-6">
+         <div className="container space-y-6 pb-8">
             <div className="space-y-6">
                <h3 className="font-inter text-lg font-semibold sm:text-2xl">
                   Criar sua cartinha digital
@@ -162,6 +170,18 @@ const CreateBirthdayCard: React.FC<CreateBirthdayCardProps> = ({
                </Button>
             </div>
          </div>
+         <Dialog>
+            <DialogTrigger>Open</DialogTrigger>
+            <DialogContent>
+               <DialogHeader>
+                  <DialogTitle>Are you absolutely sure?</DialogTitle>
+                  <DialogDescription>
+                     This action cannot be undone. This will permanently delete
+                     your account and remove your data from our servers.
+                  </DialogDescription>
+               </DialogHeader>
+            </DialogContent>
+         </Dialog>
       </div>
    )
 }

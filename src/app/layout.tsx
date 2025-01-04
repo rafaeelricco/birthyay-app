@@ -1,5 +1,6 @@
 import '@mdxeditor/editor/style.css'
 
+import '@/styles/carroussel.css'
 import '@/styles/globals.css'
 import '@/styles/reset.css'
 import '@/styles/text-editor.css'
@@ -74,7 +75,7 @@ export default async function Root({
 }>) {
    const resolvedParams = await params
    return (
-      <html lang={resolvedParams.lang} className="antialiased">
+      <html lang={resolvedParams.lang} className="theme-light antialiased">
          <Head
             title="Birthyay | O seu feliz aniversário de um jeito especial"
             description="Crie páginas de aniversário que ajudam você a expressar seus sentimentos com mensagens personalizadas, vídeos e muito mais."

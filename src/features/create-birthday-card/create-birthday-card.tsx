@@ -14,6 +14,7 @@ import { Header } from '@/components/ui/header'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { EDITOR_PLUGINS } from '@/components/ui/mdx-editor-plugins'
+import { PreviewBirthdayCard } from '@/features/create-birthday-card/preview-birthday-card'
 import { useDisclosure } from '@/hooks/useDisclosure'
 import { formatSize } from '@/lib/react-dropzone'
 import { DictionaryProps } from '@/types/dictionary'
@@ -174,13 +175,14 @@ const CreateBirthdayCard: React.FC<CreateBirthdayCardProps> = ({
          </div>
          <Dialog
             open={dialogPreview.isOpen}
+            // open
             onOpenChange={dialogPreview.toggle}
          >
             <DialogContent>
                <DialogHeader>
                   <DialogTitle>Pré-visualização da cartinha</DialogTitle>
-                  <DialogContent>kkk</DialogContent>
                </DialogHeader>
+               <PreviewBirthdayCard />
             </DialogContent>
          </Dialog>
       </div>

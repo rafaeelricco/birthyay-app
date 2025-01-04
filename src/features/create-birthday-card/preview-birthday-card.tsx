@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { EmblaOptionsType } from 'embla-carousel'
 
-import EmblaCarousel from './components/embla/EmblaCarousel'
+import EmblaCarousel from './components/embla/embla-carousel'
 
 const OPTIONS: EmblaOptionsType = { loop: true }
 const SLIDE_COUNT = 5

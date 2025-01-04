@@ -174,8 +174,8 @@ const CreateBirthdayCard: React.FC<CreateBirthdayCardProps> = ({
             </div>
          </div>
          <Dialog
-            open={dialogPreview.isOpen}
-            // open
+            // open={dialogPreview.isOpen}
+            open
             onOpenChange={dialogPreview.toggle}
          >
             <DialogContent>

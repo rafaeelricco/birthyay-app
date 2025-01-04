@@ -6,18 +6,18 @@ import { Button } from '@/components/ui/button'
 import {
    Dialog,
    DialogContent,
-   DialogDescription,
    DialogHeader,
-   DialogTitle,
-   DialogTrigger
+   DialogTitle
 } from '@/components/ui/dialog'
 import { Dropzone } from '@/components/ui/dropzone'
 import { Header } from '@/components/ui/header'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { EDITOR_PLUGINS } from '@/components/ui/mdx-editor-plugins'
+import { useDisclosure } from '@/hooks/useDisclosure'
 import { formatSize } from '@/lib/react-dropzone'
 import { DictionaryProps } from '@/types/dictionary'
+import { formatFileName } from '@/utils/format_file_name'
 import { MDXEditor } from '@mdxeditor/editor'
 import { GripVertical } from 'lucide-react'
 import { createSwapy, Swapy } from 'swapy'
@@ -35,6 +35,7 @@ const CreateBirthdayCard: React.FC<CreateBirthdayCardProps> = ({
    const [files, setFiles] = React.useState<File[]>([])
    const [order, setOrder] = React.useState<number[]>([])
 
+   const dialogPreview = useDisclosure()
    const swapyRef = React.useRef<Swapy | null>(null)
    const containerRef = React.useRef<HTMLDivElement>(null)
 
@@ -138,7 +139,7 @@ const CreateBirthdayCard: React.FC<CreateBirthdayCardProps> = ({
                                        <GripVertical className="h-4 w-4" />
                                     </div>
                                     <span className="select-none">
-                                       {file.name}
+                                       {formatFileName(file.name)}
                                     </span>
                                  </div>
                               </div>
@@ -163,6 +164,7 @@ const CreateBirthdayCard: React.FC<CreateBirthdayCardProps> = ({
             </div>
             <div className="flex justify-end">
                <Button
+                  onClick={dialogPreview.toggle}
                   disabled={files.length === 0}
                   variant="gradient-animated"
                >
@@ -170,15 +172,14 @@ const CreateBirthdayCard: React.FC<CreateBirthdayCardProps> = ({
                </Button>
             </div>
          </div>
-         <Dialog>
-            <DialogTrigger>Open</DialogTrigger>
+         <Dialog
+            open={dialogPreview.isOpen}
+            onOpenChange={dialogPreview.toggle}
+         >
             <DialogContent>
                <DialogHeader>
-                  <DialogTitle>Are you absolutely sure?</DialogTitle>
-                  <DialogDescription>
-                     This action cannot be undone. This will permanently delete
-                     your account and remove your data from our servers.
-                  </DialogDescription>
+                  <DialogTitle>Pré-visualização da cartinha</DialogTitle>
+                  <DialogContent>kkk</DialogContent>
                </DialogHeader>
             </DialogContent>
          </Dialog>

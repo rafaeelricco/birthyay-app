@@ -8,6 +8,7 @@ import {
    useDotButton
 } from '@/features/create-birthday-card/components/embla/embla-carousel-dot-button'
 import { EmblaOptionsType } from 'embla-carousel'
+
 import useEmblaCarousel from 'embla-carousel-react'
 import React from 'react'
 
